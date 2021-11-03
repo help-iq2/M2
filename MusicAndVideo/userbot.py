@@ -132,3 +132,17 @@ async def repo(client, m: Message):
 • [Laky](https://github.com/Laky-64) untuk [PyTgCalls](https://github.com/pytgcalls/pytgcalls)</b>
 """
     await m.reply(REPO, disable_web_page_preview=True)
+
+
+@Client.on_message(filters.private)
+async def start(client, m: Message):
+    START = f"""
+<b>✨ Selamat Datang {m.from_user.mention}!
+
+💬 Saya Adalah [Userbot](https://t.me/GroupMusicRandom) Yang Ditugaskan Untuk Memutar lagu Dan Video Di Grup Telegram Andai
+
+📚 Untuk Mengetahui Cara Menggunakan Saya Bagaimana Silahkan Kirim Perintah » `/help`
+
+💡 Jika Anda Menginginkan Saya Bergabung Di Grup Anda Silahkan Kirim Link Grup Telegram Andai Kepada @Tomi_sn</b>
+"""
+    await m.reply(START, disable_web_page_preview=True)
