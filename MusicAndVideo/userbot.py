@@ -80,3 +80,13 @@ async def help(client, m: Message):
 • {HNDLR}end - untuk mengakhiri pemutaran</b>
 """
     await m.reply(HELP)
+
+
+
+@Client.on_message(filters.command(["repo"], prefixes=f"{HNDLR}"))
+async def repo(client, m: Message):
+    REPO = f"""
+<b>• [Github](https://github.com/XtomiSN/MusicAndVideoPlayer) MusicAndVideoPlayer
+• [Group](https://t.me/GroupMusicRandom) GroupMusicRandom</b>
+"""
+    await m.reply(REPO)
