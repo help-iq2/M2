@@ -366,9 +366,9 @@ async def vplayfrom(client, m: Message):
             async for x in bot.search_messages(chat, limit=limit, filter="audio"):
                 location = await x.download()
                 if x.video.title:
-                    songname = x.video.title[:30] + "..."
-                else:
                     songname = x.video.file_name[:30] + "..."
+                else:
+                    songname = x.video.document.file_name[:30] + "..."
                 link = x.link
                 if chat_id in QUEUE:
                     add_to_queue(chat_id, songname, location, link, "Video", 0)
