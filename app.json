@@ -1,0 +1,45 @@
+{
+    "name": "Music Dan Video Player UserBot",
+    "description": "Telegram UserBot Untuk Memutar Lagu Dan Video Di Obrolan Suara Telegram.",
+    "logo": "https://telegra.ph/file/e99fd5f4e72127ed67c65.jpg",
+    "keywords": [
+        "Telegram",
+        "MusicPlayer",
+        "VideoPlayer"
+    ],
+    "repository": "https://github.com/XtomiSN/MusicAndVideoPlayer",
+    "env": {
+        "SESSION": {
+            "description": "Pyrogram String Session",
+            "required": true
+        },
+        "API_ID": {
+            "description": "Masukan APP ID Silahkan Ambil dari my.telegram.org/apps",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "Masukan API HASH Silahkan Ambil dari my.telegram.org/apps",
+            "required": true
+        },
+        "SUDO_USERS": {
+            "description": "Daftar User ID pengguna dihitung sebagai admin di semua tempat (pemisah menggunakan space)",
+            "required": true
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        },
+        {
+            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "stack": "container"
+}
