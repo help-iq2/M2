@@ -17,7 +17,6 @@ from config import HNDLR, bot, call_py
 from MusicAndVideo.helpers.decorators import authorized_users_only
 from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
 
-db = {}
 
 IMAGE = [
     "https://telegra.ph/file/cbdd8b864c39b394de8f6.jpg",
@@ -414,24 +413,3 @@ async def playlist(client, m: Message):
             await m.reply(QUE, disable_web_page_preview=True)
     else:
         await m.reply("**❌ Tidak memutar apapun**")
-
-
-@Client.on_message(filters.command(["volume"], prefixes=f"{HNDLR}"))
-@authorized_users_only
-async def volume_bot(_, message: Message):
-    global db
-    usage = f"**GUNAKAN:**\n{HNDLR}volume [1-200]"
-    if len(message.command) != 2:
-        return await message.reply_text(usage)
-    if "call" not in db:
-        return await message.reply_text("VC belum dimulaid")
-    vc = ["call"]
-    vc = bot
-    volume = int(message.text.split(None, 1)[1])
-    if (volume < 1) or (volume > 200):
-        return await message.reply_text(usage)
-    try:
-        await vc.set_my_volume(volume=volume)
-    except ValueError:
-        return await message.reply_text(usage)
-    await message.reply_text(f"**Volume Diatur Ke {volume}**")
