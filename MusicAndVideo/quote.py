@@ -2,12 +2,12 @@ from io import BytesIO
 from traceback import format_exc
 
 import aiohttp
-from MusicAndVideo.helpers.merrors import capture_err
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from Python_ARQ import ARQ
 
 from config import HNDLR
+from MusicAndVideo.helpers.merrors import capture_err
 
 ARQ_API_KEY = "QFOTZM-GSZUFY-CHGHRX-TDEHOZ-ARQ"
 aiohttpsession = aiohttp.ClientSession()

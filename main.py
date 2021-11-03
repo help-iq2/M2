@@ -1,9 +1,9 @@
 import asyncio
 
-from MusicAndVideo.quote import arq
 from pytgcalls import idle
 
 from config import call_py
+from MusicAndVideo.quote import arq
 
 
 async def main():
