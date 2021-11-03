@@ -14,9 +14,7 @@ from pytgcalls.types.input_stream.quality import (
 from youtubesearchpython import VideosSearch
 
 from config import HNDLR, bot, call_py
-from MusicAndVideo.helpers.decorators import authorized_users_only
 from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
-
 
 IMAGE = [
     "https://telegra.ph/file/cbdd8b864c39b394de8f6.jpg",
