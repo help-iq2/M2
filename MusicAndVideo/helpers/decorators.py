@@ -1,10 +1,10 @@
 from typing import Callable
 
-from MusicAndVideo.helpers.admins import get_administrators
 from pyrogram import Client
 from pyrogram.types import Message
 
 from config import SUDO_USERS
+from MusicAndVideo.helpers.admins import get_administrators
 
 
 def authorized_users_only(func: Callable) -> Callable:
