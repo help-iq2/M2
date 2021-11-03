@@ -371,7 +371,7 @@ async def vplayfrom(client, m: Message):
                     songname = x.video.file_name[:30] + "..."
                 link = x.link
                 if chat_id in QUEUE:
-                    add_to_queue(chat_id, songname, location, link, "video", 0)
+                    add_to_queue(chat_id, songname, location, link, "Video", 0)
                 else:
                     await call_py.join_group_call(
                         chat_id,
@@ -392,7 +392,7 @@ async def vplayfrom(client, m: Message):
                     )
             await hmm.delete()
             await m.reply(
-                f"➕ Menambahkan {lmt} Video Ke Dalam Antrian\n• Klik {HNDLR}playlist Untuk Melihat Daftar Putar**"
+                f"➕ Menambahkan {lmt} Video Ke Dalam Antrian\n• Ketik {HNDLR}playlist Untuk Melihat Daftar Putar**"
             )
         except Exception as e:
             await hmm.edit(f"**ERROR** \n`{e}`")
@@ -425,7 +425,7 @@ async def playfrom(client, m: Message):
                     songname = x.audio.file_name[:30] + "..."
                 link = x.link
                 if chat_id in QUEUE:
-                    add_to_queue(chat_id, songname, location, link, "audio", 0)
+                    add_to_queue(chat_id, songname, location, link, "Audio", 0)
                 else:
                     await call_py.join_group_call(
                         chat_id,
