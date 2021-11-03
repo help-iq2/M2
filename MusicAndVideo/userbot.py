@@ -85,7 +85,50 @@ async def help(client, m: Message):
 @Client.on_message(filters.command(["repo"], prefixes=f"{HNDLR}"))
 async def repo(client, m: Message):
     REPO = f"""
-<b>• [Github](https://github.com/XtomiSN/MusicAndVideoPlayer) MusicAndVideoPlayer
-• [Group](https://t.me/GroupMusicRandom) GroupMusicRandom</b>
+<b>🎶 Music Dan Video Player UserBot
+
+🤖 Telegram UserBot Untuk Memutar Lagu Dan Video Di Obrolan Suara Telegram.
+
+✨ Dipersembahkan Oleh 
+• [PyTgCalls](https://github.com/pytgcalls/pytgcalls)
+• [Pyrogram](https://github.com/pyrogram/pyrogram)
+
+
+📝 Persyaratan
+• Python 3.8+
+• FFMPEG
+• Nodejs v16+
+
+🛠 MENU BANTUAN
+
+⚡ PERINTAH UNTUK SEMUA ORANG
+• `/play [judul lagu | link youtube | balas file audio]` - untuk memutar lagu
+• `/vplay [judul video | link youtube | balas file video]` - untuk memutar video
+• `/playlist` untuk melihat daftar putar
+• `/ping` - untuk cek status
+• `/help` - untuk melihat daftar perintah
+
+⚡ PERINTAH UNTUK SEMUA ADMIN
+• `/resume` - untuk melanjutkan pemutaran lagu atau video
+• `/pause` - untuk untuk menjeda pemutaran lagu atau video
+• `/skip` - untuk melewati lagu atau video
+• `/end` - untuk mengakhiri pemutaran
+
+💡 Deployment
+
+💜 Heroku
+
+ [𝗗𝗘𝗣𝗟𝗢𝗬 𝗞𝗘 𝗛𝗘𝗥𝗢𝗞𝗨](https://heroku.com/deploy?template=https://github.com/XtomiSN/MusicAndVideoPlayer)
+
+📚 Variabel Yang Dibutuhkan
+• `API_ID` - Dapatkan Dari [my.telegram.org](https://my.telegram.org)
+• `API_HASH` - Dapatkan Dari [my.telegram.org](https://my.telegram.org)
+• `SESSION` - Sesi String Pyrogram. Dapatkan String Dari [Sini](https://replit.com/@GoodBoysExe/string-session?lite=1&outputonly=1)
+• `SUDO_USER` - ID Akun Telegram Yang Digunakan Sebagai Admin
+
+
+🔥 KREDIT 
+- [Dan](https://github.com/delivrance) untuk [Pyrogram](https://github.com/pyrogram/pyrogram)
+- [Laky](https://github.com/Laky-64) untuk [PyTgCalls](https://github.com/pytgcalls/pytgcalls)</b>
 """
     await m.reply(REPO)
