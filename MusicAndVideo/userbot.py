@@ -131,4 +131,4 @@ async def repo(client, m: Message):
 - [Dan](https://github.com/delivrance) untuk [Pyrogram](https://github.com/pyrogram/pyrogram)
 - [Laky](https://github.com/Laky-64) untuk [PyTgCalls](https://github.com/pytgcalls/pytgcalls)</b>
 """
-    await m.reply(REPO)
+    await m.reply(REPO, disable_web_page_preview=True)
