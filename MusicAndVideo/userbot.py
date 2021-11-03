@@ -32,6 +32,7 @@ async def _human_time_duration(seconds):
 
 @Client.on_message(filters.command(["ping"], prefixes=f"{HNDLR}"))
 async def ping(client, m: Message):
+    await m.delete()
     start = time()
     current_time = datetime.utcnow()
     m_reply = await m.reply_text("⚡")
@@ -47,6 +48,7 @@ async def ping(client, m: Message):
     filters.user(SUDO_USERS) & filters.command(["restart"], prefixes=f"{HNDLR}")
 )
 async def restart(client, m: Message):
+    await m.delete()
     loli = await m.reply("1")
     await loli.edit("2")
     await loli.edit("3")
@@ -63,8 +65,11 @@ async def restart(client, m: Message):
 
 @Client.on_message(filters.command(["help"], prefixes=f"{HNDLR}"))
 async def help(client, m: Message):
+    await m.delete()
     HELP = f"""
-<b>🛠 MENU BANTUAN
+<b>👋 Hallo {m.from_user.mention}!
+
+🛠 MENU BANTUAN
 
 ⚡ PERINTAH UNTUK SEMUA ORANG
 • {HNDLR}play [judul lagu | link youtube | balas file audio] - untuk memutar lagu
@@ -84,8 +89,11 @@ async def help(client, m: Message):
 
 @Client.on_message(filters.command(["repo"], prefixes=f"{HNDLR}"))
 async def repo(client, m: Message):
+    await m.delete()
     REPO = f"""
-<b>🎶 Music Dan Video Player UserBot
+<b>👋 Hallo {m.from_user.mention}!
+
+🎶 Music Dan Video Player UserBot
 
 🤖 Telegram UserBot Untuk Memutar Lagu Dan Video Di Obrolan Suara Telegram.
 
