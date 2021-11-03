@@ -133,7 +133,7 @@ async def play(client, m: Message):
 🏷️ Judul: [{songname}]({link})
 💬 Chat ID: {chat_id}
 🎧 Atas Permintaan: {m.from_user.mention}
-===>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<===**
+====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                 )
             else:
@@ -154,7 +154,7 @@ async def play(client, m: Message):
 🏷️ Judul: [{songname}]({link})
 💬 Chat ID: {chat_id}
 🎧 Atas Permintaan: {m.from_user.mention}
-===>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<===**
+====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                 )
 
@@ -186,7 +186,7 @@ async def play(client, m: Message):
 🏷️ Judul: [{songname}]({url})
 💬 Chat ID: {chat_id}
 🎧 Atas Permintaan: {m.from_user.mention}
-===>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<===**
+====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                         )
                     else:
@@ -208,7 +208,7 @@ async def play(client, m: Message):
 🏷️ Judul: [{songname}]({url})
 💬 Chat ID: {chat_id}
 🎧 Atas Permintaan: {m.from_user.mention}
-===>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<===**
+====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                             )
                         except Exception as ep:
@@ -254,7 +254,7 @@ async def vplay(client, m: Message):
 🏷️ Judul: [{songname}]({link})
 💬 Chat ID: {chat_id}
 🎧 Atas Permintaan: {m.from_user.mention}
-===>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<===**
+====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                 )
             else:
@@ -279,7 +279,7 @@ async def vplay(client, m: Message):
 🏷️ Judul: [{songname}]({link})
 💬 Chat ID: {chat_id}
 🎧 Atas permintaan: {m.from_user.mention}
-===>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<===**
+====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                 )
 
@@ -317,7 +317,7 @@ async def vplay(client, m: Message):
 🏷️ Judul: [{songname}]({url})
 💬 Chat ID: {chat_id}
 🎧 Atas Permintaan: {m.from_user.mention}
-===>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<===**
+====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                         )
                     else:
@@ -337,11 +337,65 @@ async def vplay(client, m: Message):
 🏷️ Judul: [{songname}]({url})
 💬 Chat ID: {chat_id}
 🎧 Atas Permintaan: {m.from_user.mention}
-===>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<===**
+====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                             )
                         except Exception as ep:
                             await huehue.edit(f"`{ep}`")
+
+
+@Client.on_message(filters.command(["vplayfrom"], prefixes=f"{HNDLR}"))
+async def vplayfrom(client, m: Message):
+    chat_id = m.chat.id
+    if len(m.command) < 2:
+        await m.reply(
+            f"**PENGGUNAAN:** \n\n`{HNDLR}playfrom [chat_id/username]` \n`{HNDLR}playfrom [chat_id/username]`"
+        )
+    else:
+        args = m.text.split(maxsplit=1)[1]
+        if ";" in args:
+            chat = args.split(";")[0]
+            limit = int(args.split(";")[1])
+        else:
+            chat = args
+            limit = 10
+            lmt = 9
+        await m.delete()
+        hmm = await m.reply(f"🔎 Mengambil {limit} Video Acak Dari {chat}**")
+        try:
+            async for x in bot.search_messages(chat, limit=limit, filter="audio"):
+                location = await x.download()
+                if x.video.title:
+                    songname = x.video.title[:30] + "..."
+                else:
+                    songname = x.video.file_name[:30] + "..."
+                link = x.link
+                if chat_id in QUEUE:
+                    add_to_queue(chat_id, songname, location, link, "video", 0)
+                else:
+                    await call_py.join_group_call(
+                        chat_id,
+                        AudioPiped(location),
+                        stream_type=StreamType().pulse_stream,
+                    )
+                    add_to_queue(chat_id, songname, location, link, "Video", 0)
+                    # await m.reply_to_message.delete()
+                    await m.reply_photo(
+                        photo="https://telegra.ph/file/6213d2673486beca02967.png",
+                        caption=f"""
+**▶ Mulai Memutar Video Dari {chat}
+🏷️ Judul: [{songname}]({link})
+💬 Chat ID: {chat_id}
+🎧 Atas Permintaan: {m.from_user.mention}
+====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
+""",
+                    )
+            await hmm.delete()
+            await m.reply(
+                f"➕ Menambahkan {lmt} Video Ke Dalam Antrian\n• Klik {HNDLR}playlist Untuk Melihat Daftar Putar**"
+            )
+        except Exception as e:
+            await hmm.edit(f"**ERROR** \n`{e}`")
 
 
 @Client.on_message(filters.command(["playfrom"], prefixes=f"{HNDLR}"))
@@ -371,7 +425,7 @@ async def playfrom(client, m: Message):
                     songname = x.audio.file_name[:30] + "..."
                 link = x.link
                 if chat_id in QUEUE:
-                    add_to_queue(chat_id, songname, location, link, "Audio", 0)
+                    add_to_queue(chat_id, songname, location, link, "audio", 0)
                 else:
                     await call_py.join_group_call(
                         chat_id,
@@ -387,12 +441,12 @@ async def playfrom(client, m: Message):
 🏷️ Judul: [{songname}]({link})
 💬 Chat ID: {chat_id}
 🎧 Atas Permintaan: {m.from_user.mention}
-===>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<===**
+====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                     )
             await hmm.delete()
             await m.reply(
-                f"➕ Menambahkan {lmt} Lagu Ke Dalam Antrian\n• Klik {HNDLR}playlist Untuk Melihat Daftar Putar**"
+                f"➕ Menambahkan {lmt} Lagu Ke Dalam Antrian\n• Ketik {HNDLR}playlist Untuk Melihat Daftar Putar**"
             )
         except Exception as e:
             await hmm.edit(f"**ERROR** \n`{e}`")
