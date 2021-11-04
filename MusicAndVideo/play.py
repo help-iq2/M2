@@ -36,7 +36,7 @@ IMAGE = [
 ]
 
 AMBILFOTO = random.choice(IMAGE)
-THUMBNAIL = Image.open(io.BytesIO(requests.get(THUMBNAIL).content))
+THUMBNAIL = Image.open(io.BytesIO(requests.get(AMBILFOTO).content))
 IMAGE_THUMBNAIL = ImageDraw.Draw(THUMBNAIL)
 
 # music player
