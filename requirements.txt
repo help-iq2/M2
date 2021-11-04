@@ -3,11 +3,11 @@ git+https://github.com/pyrogram/pyrogram@master
 py-tgcalls==0.8.1rc1
 requests
 aiohttp
+Pillow
 aiofiles
 asyncio
 wget
 python-arq
-youtube-search-python==1.4.6
 youtube-search-python
 yt-dlp
 python-dotenv
