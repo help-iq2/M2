@@ -1,8 +1,8 @@
 import asyncio
 import glob
-import aiohttp
 import random
 
+import aiohttp
 from PIL import Image, ImageDraw
 from pyrogram import Client, filters
 from pyrogram.types import Message
@@ -35,6 +35,7 @@ PNG = [
     "https://telegra.ph/file/d081b03640c7cb4247b17.jpg",
 ]
 
+
 async def generate_cover(PNG):
     async with aiohttp.ClientSession() as session, session.get(thumbnail) as resp:
         if resp.status == 200:
@@ -44,7 +45,8 @@ async def generate_cover(PNG):
             AMBIFOTO = glob.glob(PNG)
             IMAGE = random.choice(AMBIFOTO)
             THUMBNAIL = Image.open(IMAGE)
-            IMAGE_THUMBNAIL = ImageDraw.Draw(THUMBNAIL)
+            ImageDraw.Draw(THUMBNAIL)
+
 
 # music player
 def ytsearch(query):
