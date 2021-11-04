@@ -1,5 +1,6 @@
 import asyncio
 import io
+import glob
 import random
 
 import requests
@@ -19,7 +20,7 @@ from youtubesearchpython import VideosSearch
 from config import HNDLR, bot, call_py
 from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
 
-AMBILFOTO = [
+PNG = [
     "https://telegra.ph/file/cbdd8b864c39b394de8f6.jpg",
     "https://telegra.ph/file/24126cf48ed2bc9f6ee60.jpg",
     "https://telegra.ph/file/a47e868aa23969b827b02.jpg",
@@ -35,8 +36,9 @@ AMBILFOTO = [
     "https://telegra.ph/file/d081b03640c7cb4247b17.jpg",
 ]
 
-IMAGE = random.choice(AMBILFOTO)
-THUMBNAIL = Image.open(io.BytesIO(requests.get(AMBILFOTO).content))
+FOTO = glob.glob(PNG)
+AMBIL = random.choice(FOTO)
+THUMBNAIL = Image.open(io.BytesIO(requests.get(AMBIL).content))
 IMAGE_THUMBNAIL = ImageDraw.Draw(THUMBNAIL)
 
 # music player
