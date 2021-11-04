@@ -18,7 +18,7 @@ from youtubesearchpython import VideosSearch
 from config import HNDLR, bot, call_py
 from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
 
-PNG = [
+AMBIFOTO = [
     "https://telegra.ph/file/cbdd8b864c39b394de8f6.jpg",
     "https://telegra.ph/file/24126cf48ed2bc9f6ee60.jpg",
     "https://telegra.ph/file/a47e868aa23969b827b02.jpg",
@@ -34,10 +34,9 @@ PNG = [
     "https://telegra.ph/file/d081b03640c7cb4247b17.jpg",
 ]
 
-AMBIFOTO = glob.glob(PNG)
-IMAGE = random.choice(AMBIFOTO)
-THUMBNAIL = Image.open(IMAGE)
-IMAGE_THUMBNAIL = ImageDraw.Draw(THUMBNAIL)
+IMAGE = glob.glob(AMBIFOTO)
+THUMBNAIL = random.choice(IMAGE)
+IMAGE_THUMBNAIL = Image.open(THUMBNAIL)
 
 
 # music player
