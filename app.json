@@ -19,7 +19,7 @@
         },
         "HNDLR",
             "description": "ini akan digunakan sebagai prefix di semua perintah",
-            "required": false
+            "required": false,
             "value": "/"
         },
         "API_HASH": {
