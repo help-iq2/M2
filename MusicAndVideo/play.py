@@ -2,8 +2,8 @@ import asyncio
 import io
 import random
 
-from PIL import Image
 import requests
+from PIL import Image
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pytgcalls import StreamType
