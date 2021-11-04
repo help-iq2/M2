@@ -1,5 +1,8 @@
 import asyncio
 import random
+import requests
+import io
+from PIL import Imagw
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
@@ -32,7 +35,8 @@ IMAGE = [
     "https://telegra.ph/file/d081b03640c7cb4247b17.jpg",
 ]
 
-IMAGE_THUMBNAIL = random.choice(IMAGE)
+THUMBNAIL = random.choice(IMAGE)
+IMAGE_THUMBNAIL = Image.open(io.BytesIO(requests.get(THUMBNAIL).content))
 
 # music player
 def ytsearch(query):
