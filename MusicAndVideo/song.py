@@ -19,6 +19,7 @@ from config import HNDLR
 
 @Client.on_message(filters.command(["song", "music"], prefixes=f"{HNDLR}"))
 async def song(client, message: Message):
+    await message.delete()
     urlissed = get_text(message)
     if not urlissed:
         await client.send_message(
@@ -233,8 +234,8 @@ def time_to_seconds(time):
 
 @Client.on_message(filters.command(["vsong", "video"], prefixes=f"{HNDLR}"))
 async def vsong(client, message: Message):
+    await message.delete()
     urlissed = get_text(message)
-
     pablo = await client.send_message(message.chat.id, f"**🔎 Mencari** `{urlissed}`")
     if not urlissed:
         await pablo.edit(
