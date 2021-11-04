@@ -10,6 +10,7 @@ from MusicAndVideo.helpers.queues import QUEUE, clear_queue
 @Client.on_message(filters.command(["skip"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def skip(client, m: Message):
+    await m.delete()
     chat_id = m.chat.id
     if len(m.command) < 2:
         op = await skip_current_song(chat_id)
@@ -43,6 +44,7 @@ async def skip(client, m: Message):
 @Client.on_message(filters.command(["end", "stop"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def stop(client, m: Message):
+    await m.delete()
     chat_id = m.chat.id
     if chat_id in QUEUE:
         try:
@@ -58,6 +60,7 @@ async def stop(client, m: Message):
 @Client.on_message(filters.command(["pause"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def pause(client, m: Message):
+    await m.delete()
     chat_id = m.chat.id
     if chat_id in QUEUE:
         try:
@@ -74,6 +77,7 @@ async def pause(client, m: Message):
 @Client.on_message(filters.command(["resume"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def resume(client, m: Message):
+    await m.delete()
     chat_id = m.chat.id
     if chat_id in QUEUE:
         try:
