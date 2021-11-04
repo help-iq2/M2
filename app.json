@@ -17,7 +17,7 @@
             "description": "Masukan APP ID Silahkan Ambil dari my.telegram.org/apps",
             "required": true
         },
-        "HNDLR",
+        "HNDLR", {
             "description": "ini akan digunakan sebagai prefix di semua perintah",
             "required": false,
             "value": "/"
