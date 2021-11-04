@@ -248,7 +248,6 @@ async def vplay(client, m: Message):
             if chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, dl, link, "Video", Q)
                 await huehue.delete()
-                # await m.reply_to_message.delete()
                 await m.reply_photo(
                     chat_id,
                     photo="https://telegra.ph/file/d6f92c979ad96b2031cba.png",
@@ -330,7 +329,7 @@ async def vplay(client, m: Message):
                                 stream_type=StreamType().pulse_stream,
                             )
                             add_to_queue(chat_id, songname, ytlink, url, "Video", Q)
-                             await huehue.delete()
+                            await huehue.delete()
                             await m.reply_photo(
                                 photo=f"{IMAGE_THUMBNAIL}",
                                 caption=f"""
