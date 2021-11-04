@@ -34,7 +34,7 @@ AMBIFOTO = [
     "https://telegra.ph/file/d081b03640c7cb4247b17.jpg",
 ]
 
-IMAGE = glob.glob(AMBIFOTO)
+IMAGE = glob.glob("thumbnail/*")
 THUMBNAIL = random.choice(IMAGE)
 IMAGE_THUMBNAIL = Image.open(THUMBNAIL)
 
