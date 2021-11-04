@@ -1,9 +1,7 @@
 import asyncio
 import glob
-import io
 import random
 
-import requests
 from PIL import Image, ImageDraw
 from pyrogram import Client, filters
 from pyrogram.types import Message
