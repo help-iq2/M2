@@ -1,5 +1,6 @@
 import asyncio
 import glob
+import aiohttp
 import random
 
 from PIL import Image, ImageDraw
@@ -34,10 +35,16 @@ PNG = [
     "https://telegra.ph/file/d081b03640c7cb4247b17.jpg",
 ]
 
-AMBIL = glob.glob(PNG)
-FOTO = random.choice(AMBIL)
-THUMBNAIL = Image.open(FOTO)
-IMAGE_THUMBNAIL = ImageDraw.Draw(THUMBNAIL)
+async def generate_cover(PNG):
+    async with aiohttp.ClientSession() as session, session.get(thumbnail) as resp:
+        if resp.status == 200:
+            f = await aiofiles.open("background.png", mode="wb")
+            await f.write(await resp.read())
+            await f.close()
+            AMBIFOTO = glob.glob(PNG)
+            IMAGE = random.choice(AMBIFOTO)
+            THUMBNAIL = Image.open(IMAGE)
+            IMAGE_THUMBNAIL = ImageDraw.Draw(THUMBNAIL)
 
 # music player
 def ytsearch(query):
