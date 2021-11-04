@@ -1,9 +1,8 @@
 import asyncio
-import random
-import requests
 import io
-from PIL import Imagw
+import random
 
+import requests
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pytgcalls import StreamType
