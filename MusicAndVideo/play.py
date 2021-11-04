@@ -19,7 +19,7 @@ from youtubesearchpython import VideosSearch
 from config import HNDLR, bot, call_py
 from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
 
-IMAGE = [
+AMBILFOTO = [
     "https://telegra.ph/file/cbdd8b864c39b394de8f6.jpg",
     "https://telegra.ph/file/24126cf48ed2bc9f6ee60.jpg",
     "https://telegra.ph/file/a47e868aa23969b827b02.jpg",
@@ -35,7 +35,7 @@ IMAGE = [
     "https://telegra.ph/file/d081b03640c7cb4247b17.jpg",
 ]
 
-AMBILFOTO = random.choice(IMAGE)
+IMAGE = random.choice(AMBILFOTO)
 THUMBNAIL = Image.open(io.BytesIO(requests.get(AMBILFOTO).content))
 IMAGE_THUMBNAIL = ImageDraw.Draw(THUMBNAIL)
 
@@ -130,9 +130,7 @@ async def play(client, m: Message):
             if chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await huehue.delete()
-                # await m.reply_to_message.delete()
                 await m.reply_photo(
-                    chat_id,
                     photo="https://telegra.ph/file/d6f92c979ad96b2031cba.png",
                     caption=f"""
 **#⃣ Lagu Di Antrian Ke {pos}
@@ -152,9 +150,7 @@ async def play(client, m: Message):
                 )
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await huehue.delete()
-                # await m.reply_to_message.delete()
                 await m.reply_photo(
-                    chat_id,
                     photo="https://telegra.ph/file/6213d2673486beca02967.png",
                     caption=f"""
 **▶ Mulai Memutar Lagu
@@ -180,12 +176,11 @@ async def play(client, m: Message):
                 url = search[1]
                 hm, ytlink = await ytdl(url)
                 if hm == 0:
-                    await huehue.edit(f"**YTDL ERROR ⚠️** \n\n`{ytlink}`")
+                    await huehue.edit(f"**YTDL ERROR** \n\n`{ytlink}`")
                 else:
                     if chat_id in QUEUE:
                         pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                         await huehue.delete()
-                        # await m.reply_to_message.delete()
                         await m.reply_photo(
                             chat_id,
                             photo=f"{IMAGE_THUMBNAIL}",
@@ -207,10 +202,8 @@ async def play(client, m: Message):
                                 stream_type=StreamType().pulse_stream,
                             )
                             add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
-                            # await huehue.delete()
-                            # await m.reply_to_message.delete()
+                            await huehue.delete()
                             await m.reply_photo(
-                                chat_id,
                                 photo=f"{IMAGE_THUMBNAIL}",
                                 caption=f"""
 **▶ Mulai Memutar Lagu
@@ -221,8 +214,7 @@ async def play(client, m: Message):
 """,
                             )
                         except Exception as ep:
-                            await huehue.edit(f"`{ep}`")
-                            await hmm.delete()
+                            await m.reply(f"`{ep}`")
 
 
 @Client.on_message(filters.command(["vplay"], prefixes=f"{HNDLR}"))
@@ -282,9 +274,7 @@ async def vplay(client, m: Message):
                 )
                 add_to_queue(chat_id, songname, dl, link, "Video", Q)
                 await huehue.delete()
-                # await m.reply_to_message.delete()
                 await m.reply_photo(
-                    chat_id,
                     photo="https://telegra.ph/file/6213d2673486beca02967.png",
                     caption=f"""
 **▶ Mulai Memutar Video
@@ -316,12 +306,11 @@ async def vplay(client, m: Message):
                 url = search[1]
                 hm, ytlink = await ytdl(url)
                 if hm == 0:
-                    await huehue.edit(f"**YTDL ERROR ⚠️** \n\n`{ytlink}`")
+                    await huehue.edit(f"**YTDL ERROR** \n\n`{ytlink}`")
                 else:
                     if chat_id in QUEUE:
                         pos = add_to_queue(chat_id, songname, ytlink, url, "Video", Q)
                         await huehue.delete()
-                        # await m.reply_to_message.delete()
                         await m.reply_photo(
                             chat_id,
                             photo=f"{IMAGE_THUMBNAIL}",
@@ -341,10 +330,8 @@ async def vplay(client, m: Message):
                                 stream_type=StreamType().pulse_stream,
                             )
                             add_to_queue(chat_id, songname, ytlink, url, "Video", Q)
-                            # await huehue.delete()
-                            # await m.reply_to_message.delete()
+                             await huehue.delete()
                             await m.reply_photo(
-                                chat_id,
                                 photo=f"{IMAGE_THUMBNAIL}",
                                 caption=f"""
 **▶ Mulai Memutar Video
@@ -355,8 +342,7 @@ async def vplay(client, m: Message):
 """,
                             )
                         except Exception as ep:
-                            await huehue.edit(f"`{ep}`")
-                            await hmm.delete()
+                            await m.reply(f" **ERROR**\n`{ep}`")
 
 
 @Client.on_message(filters.command(["playfrom"], prefixes=f"{HNDLR}"))
@@ -394,9 +380,8 @@ async def playfrom(client, m: Message):
                         stream_type=StreamType().pulse_stream,
                     )
                     add_to_queue(chat_id, songname, location, link, "Audio", 0)
-                    # await m.reply_to_message.delete()
+                    await hmm.delete()
                     await m.reply_photo(
-                        chat_id,
                         photo="https://telegra.ph/file/6213d2673486beca02967.png",
                         caption=f"""
 **▶ Mulai Memutar Lagu Dari {chat}
@@ -410,8 +395,7 @@ async def playfrom(client, m: Message):
                 f"➕ Menambahkan {lmt} Lagu Ke Dalam Antrian\n• Ketik {HNDLR}playlist Untuk Melihat Daftar Putar**"
             )
         except Exception as e:
-            await hmm.edit(f"**ERROR** \n`{e}`")
-            await hmm.delete()
+            await m.reply(f"**ERROR** \n`{e}`")
 
 
 @Client.on_message(filters.command(["playlist", "queue"], prefixes=f"{HNDLR}"))
