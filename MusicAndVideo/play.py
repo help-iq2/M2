@@ -207,7 +207,7 @@ async def play(client, m: Message):
                                 stream_type=StreamType().pulse_stream,
                             )
                             add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
-                            await huehue.delete()
+                            # await huehue.delete()
                             # await m.reply_to_message.delete()
                             await m.reply_photo(
                                 chat_id,
@@ -222,6 +222,7 @@ async def play(client, m: Message):
                             )
                         except Exception as ep:
                             await huehue.edit(f"`{ep}`")
+                            await hmm.delete()
 
 
 @Client.on_message(filters.command(["vplay"], prefixes=f"{HNDLR}"))
@@ -340,7 +341,7 @@ async def vplay(client, m: Message):
                                 stream_type=StreamType().pulse_stream,
                             )
                             add_to_queue(chat_id, songname, ytlink, url, "Video", Q)
-                            await huehue.delete()
+                            # await huehue.delete()
                             # await m.reply_to_message.delete()
                             await m.reply_photo(
                                 chat_id,
@@ -355,6 +356,7 @@ async def vplay(client, m: Message):
                             )
                         except Exception as ep:
                             await huehue.edit(f"`{ep}`")
+                            await hmm.delete()
 
 
 @Client.on_message(filters.command(["playfrom"], prefixes=f"{HNDLR}"))
@@ -404,12 +406,12 @@ async def playfrom(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                     )
-            await hmm.delete()
             await m.reply(
                 f"➕ Menambahkan {lmt} Lagu Ke Dalam Antrian\n• Ketik {HNDLR}playlist Untuk Melihat Daftar Putar**"
             )
         except Exception as e:
             await hmm.edit(f"**ERROR** \n`{e}`")
+            await hmm.delete()
 
 
 @Client.on_message(filters.command(["playlist", "queue"], prefixes=f"{HNDLR}"))
