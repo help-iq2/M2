@@ -36,9 +36,9 @@ PNG = [
     "https://telegra.ph/file/d081b03640c7cb4247b17.jpg",
 ]
 
-FOTO = glob.glob(PNG)
-AMBIL = random.choice(FOTO)
-THUMBNAIL = Image.open(io.BytesIO(requests.get(AMBIL).content))
+AMBIL = glob.glob(PNG)
+FOTO = random.choice(AMBIL)
+THUMBNAIL = Image.open(FOTO)
 IMAGE_THUMBNAIL = ImageDraw.Draw(THUMBNAIL)
 
 # music player
