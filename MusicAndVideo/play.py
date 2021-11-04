@@ -45,7 +45,8 @@ async def generate_cover(PNG):
             AMBIFOTO = glob.glob(PNG)
             IMAGE = random.choice(AMBIFOTO)
             THUMBNAIL = Image.open(IMAGE)
-            ImageDraw.Draw(THUMBNAIL)
+            UMKM = ImageDraw.Draw(THUMBNAIL)
+            IMAGE_THUMBNAIL = UMKM
 
 
 # music player
