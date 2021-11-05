@@ -186,9 +186,9 @@ async def play(client, m: Message):
                         pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                         await huehue.delete()
                         await bot.send_photo(
-                                chat_id,
-                                photo=IMAGE_THUMBNAIL,
-                                caption=f"""
+                            chat_id,
+                            photo=IMAGE_THUMBNAIL,
+                            caption=f"""
 **#⃣ Lagu Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({url})
 💬 Chat ID: {chat_id}
@@ -320,9 +320,9 @@ async def vplay(client, m: Message):
                         pos = add_to_queue(chat_id, songname, ytlink, url, "Video", Q)
                         await huehue.delete()
                         await bot.send_photo(
-                                chat_id,
-                                photo=IMAGE_THUMBNAIL,
-                                caption=f"""
+                            chat_id,
+                            photo=IMAGE_THUMBNAIL,
+                            caption=f"""
 **#⃣ Video Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({url})
 💬 Chat ID: {chat_id}
