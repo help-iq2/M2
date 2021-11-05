@@ -210,9 +210,9 @@ async def play(client, m: Message):
                             add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                             await huehue.delete()
                             await bot.send_file(
-                            chat_id,
-                            IMAGE_THUMBNAIL,
-                            caption=f"""
+                                chat_id,
+                                IMAGE_THUMBNAIL,
+                                caption=f"""
 **▶ Mulai Memutar Lagu
 🏷️ Judul: [{songname}]({url})
 💬 Chat ID: {chat_id}
@@ -342,9 +342,9 @@ async def vplay(client, m: Message):
                             add_to_queue(chat_id, songname, ytlink, url, "Video", Q)
                             await huehue.delete()
                             await bot.send_file(
-                            chat_id,
-                            IMAGE_THUMBNAIL,
-                            caption=f"""
+                                chat_id,
+                                IMAGE_THUMBNAIL,
+                                caption=f"""
 **▶ Mulai Memutar Video
 🏷️ Judul: [{songname}]({url})
 💬 Chat ID: {chat_id}
