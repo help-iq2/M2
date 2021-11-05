@@ -36,8 +36,7 @@ AMBILFOTO = [
     "https://telegra.ph/file/d081b03640c7cb4247b17.jpg",
 ]
 
-IMAGE = random.choice(AMBILFOTO)
-IMAGE_THUMBNAIL = Image.open(io.BytesIO(requests.get(IMAGE).content))
+IMAGE_THUMBNAIL = random.choice(AMBILFOTO)
 
 # music player
 def ytsearch(query):
