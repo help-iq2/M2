@@ -185,7 +185,7 @@ async def play(client, m: Message):
                     if chat_id in QUEUE:
                         pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                         await huehue.delete()
-                        await bot.send_photo(
+                        await client.send_photo(
                             chat_id,
                             photo=IMAGE_THUMBNAIL,
                             caption=f"""
@@ -209,7 +209,7 @@ async def play(client, m: Message):
                             )
                             add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                             await huehue.delete()
-                            await bot.send_photo(
+                            await client.send_photo(
                                 chat_id,
                                 photo=IMAGE_THUMBNAIL,
                                 caption=f"""
@@ -319,7 +319,7 @@ async def vplay(client, m: Message):
                     if chat_id in QUEUE:
                         pos = add_to_queue(chat_id, songname, ytlink, url, "Video", Q)
                         await huehue.delete()
-                        await bot.send_photo(
+                        await client.send_photo(
                             chat_id,
                             photo=IMAGE_THUMBNAIL,
                             caption=f"""
@@ -341,7 +341,7 @@ async def vplay(client, m: Message):
                             )
                             add_to_queue(chat_id, songname, ytlink, url, "Video", Q)
                             await huehue.delete()
-                            await bot.send_photo(
+                            await client.send_photo(
                                 chat_id,
                                 photo=IMAGE_THUMBNAIL,
                                 caption=f"""
