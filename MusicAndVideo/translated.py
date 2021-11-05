@@ -1,7 +1,9 @@
 import emoji
 from googletrans import Translator
 from pyrogram import Client, filters
+
 from config import HNDLR
+
 
 @Client.on_message(filters.command(["tr", "trad"], prefixes=f"{HNDLR}"))
 async def _(event):
