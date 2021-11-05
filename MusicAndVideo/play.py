@@ -23,7 +23,6 @@ AMBILFOTO = [
     "https://telegra.ph/file/806b59d49aa0e326a3184.jpg",
     "https://telegra.ph/file/83939bc9832dff8a83682.jpg",
     "https://telegra.ph/file/2aef497654499534d94de.jpg",
-    "https://telegra.ph/file/c9715a3f7cf9bf18bfc42.jpg",
     "https://telegra.ph/file/7141b55e33b69a434f8c5.jpg",
     "https://telegra.ph/file/cbce4a97105ee1debdf91.jpg",
     "https://telegra.ph/file/7001368a78193f179bd67.jpg",
