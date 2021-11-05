@@ -215,7 +215,7 @@ async def play(client, m: Message):
 """,
                             )
                             if os.path.exists(IMAGE_THUMBNAIL):
-                                    os.remove(IMAGE_THUMBNAIL)
+                                os.remove(IMAGE_THUMBNAIL)
                         except Exception as ep:
                             await m.reply(f"`{ep}`")
 
@@ -344,7 +344,7 @@ async def vplay(client, m: Message):
 """,
                             )
                             if os.path.exists(IMAGE_THUMBNAIL):
-                                    os.remove(IMAGE_THUMBNAIL)
+                                os.remove(IMAGE_THUMBNAIL)
                         except Exception as ep:
                             await m.reply(f" **ERROR**\n`{ep}`")
 
