@@ -6,7 +6,7 @@ import os
 import random
 
 import requests
-from PIL import Image, ImageDraw
+from PIL import Image
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pytgcalls import StreamType
@@ -39,9 +39,11 @@ AMBILFOTO = [
 
 IMAGE = random.choice(AMBILFOTO)
 THUMBNAIL = Image.open(io.BytesIO(requests.get(IMAGE).content))
-APP = ImageDraw.Draw(THUMBNAIL)
-IMAGE_THUMBNAIL = "final.png"
-APP.save(IMAGE_THUMBNAIL, "png")
+image5 = THUMBNAIL.convert("RGBA")
+Image.alpha_composite(image5).save("temp.png")
+img = Image.open("temp.png")
+img.save("final.png")
+os.remove("temp.png")
 
 # music player
 def ytsearch(query):
@@ -187,7 +189,7 @@ async def play(client, m: Message):
                         await huehue.delete()
                         await client.send_photo(
                             chat_id,
-                            photo=IMAGE_THUMBNAIL,
+                            photo="final.png",
                             caption=f"""
 **#⃣ Lagu Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({url})
@@ -196,8 +198,7 @@ async def play(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                         )
-                        if os.path.exists(IMAGE_THUMBNAIL):
-                            os.remove(IMAGE_THUMBNAIL)
+                        os.remove("final.png")
                     else:
                         try:
                             await call_py.join_group_call(
@@ -211,7 +212,7 @@ async def play(client, m: Message):
                             await huehue.delete()
                             await client.send_photo(
                                 chat_id,
-                                photo=IMAGE_THUMBNAIL,
+                                photo="final.png",
                                 caption=f"""
 **▶ Mulai Memutar Lagu
 🏷️ Judul: [{songname}]({url})
@@ -220,8 +221,7 @@ async def play(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                             )
-                            if os.path.exists(IMAGE_THUMBNAIL):
-                                os.remove(IMAGE_THUMBNAIL)
+                            os.remove("final.png")
                         except Exception as ep:
                             await m.reply(f"`{ep}`")
 
@@ -321,7 +321,7 @@ async def vplay(client, m: Message):
                         await huehue.delete()
                         await client.send_photo(
                             chat_id,
-                            photo=IMAGE_THUMBNAIL,
+                            photo="final.png",
                             caption=f"""
 **#⃣ Video Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({url})
@@ -330,8 +330,7 @@ async def vplay(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                         )
-                        if os.path.exists(IMAGE_THUMBNAIL):
-                            os.remove(IMAGE_THUMBNAIL)
+                        os.remove("final.png")
                     else:
                         try:
                             await call_py.join_group_call(
@@ -343,7 +342,7 @@ async def vplay(client, m: Message):
                             await huehue.delete()
                             await client.send_photo(
                                 chat_id,
-                                photo=IMAGE_THUMBNAIL,
+                                photo="final.png",
                                 caption=f"""
 **▶ Mulai Memutar Video
 🏷️ Judul: [{songname}]({url})
@@ -352,8 +351,7 @@ async def vplay(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                             )
-                            if os.path.exists(IMAGE_THUMBNAIL):
-                                os.remove(IMAGE_THUMBNAIL)
+                            os.remove("final.png")
                         except Exception as ep:
                             await m.reply(f" **ERROR**\n`{ep}`")
 
