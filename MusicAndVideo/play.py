@@ -16,10 +16,9 @@ from youtubesearchpython import VideosSearch
 from config import HNDLR, bot, call_py
 from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
 
-IMAGE = [
+AMBILFOTO = [
     "https://telegra.ph/file/cbdd8b864c39b394de8f6.jpg",
     "https://telegra.ph/file/24126cf48ed2bc9f6ee60.jpg",
-    "https://telegra.ph/file/a47e868aa23969b827b02.jpg",
     "https://telegra.ph/file/9e8adc4d38dc05e913fd1.jpg",
     "https://telegra.ph/file/806b59d49aa0e326a3184.jpg",
     "https://telegra.ph/file/83939bc9832dff8a83682.jpg",
@@ -32,7 +31,7 @@ IMAGE = [
     "https://telegra.ph/file/d081b03640c7cb4247b17.jpg",
 ]
 
-IMAGE_THUMBNAIL = random.choice(IMAGE)
+IMAGE_THUMBNAIL = random.choice(AMBILFOTO)
 
 # music player
 def ytsearch(query):
