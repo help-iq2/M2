@@ -3,7 +3,7 @@ from googletrans import Translator
 from config import HNDLR
 from pyrogram import Client, filters
 
-@Client.on_message(filters.command("tr ?(.*)"), prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command("tr ?(.*)")), prefixes=f"{HNDLR}"))
 async def _(event):
     if event.fwd_from:
         return
