@@ -1,7 +1,8 @@
+import io
 import asyncio
-import glob
 import random
 
+import requests
 from PIL import Image, ImageDraw
 from pyrogram import Client, filters
 from pyrogram.types import Message
@@ -33,10 +34,9 @@ AMBILFOTO = [
     "https://telegra.ph/file/d081b03640c7cb4247b17.jpg",
 ]
 
-IMAGE = glob.glob(AMBILFOTO)
-THUMBNAIL = random.choice(IMAGE)
-APP = Image.open(THUMBNAIL)
-IMAGE_THUMBNAIL = ImageDraw.Draw(APP)
+IMAGE = random.choice(AMBILFOTO)
+THUMBNAIL = Image.open(io.BytesIO(requests.get(IMAGE).content))
+IMAGE_THUMBNAIL = ImageDraw.Draw(THUMBNAIL)
 
 
 # music player
