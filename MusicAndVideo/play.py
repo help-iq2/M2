@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import asyncio
 import io
 import os
@@ -38,8 +40,7 @@ AMBILFOTO = [
 IMAGE = random.choice(AMBILFOTO)
 THUMBNAIL = Image.open(io.BytesIO(requests.get(IMAGE).content))
 APN = ImageDraw.Draw(THUMBNAIL)
-IMAGE_THUMBNAIL = "vcg.png"
-THUMBNAIL.save(IMAGE_THUMBNAIL, "png")
+IMAGE_THUMBNAIL.save("vcg.png", "png")
 
 # music player
 def ytsearch(query):
@@ -194,8 +195,8 @@ async def play(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                         )
-                        if os.path.exists(IMAGE_THUMBNAIL):
-                            os.remove(IMAGE_THUMBNAIL)
+                        # if os.path.exists(IMAGE_THUMBNAIL):
+                        os.remove(IMAGE_THUMBNAIL)
                     else:
                         try:
                             await call_py.join_group_call(
@@ -217,8 +218,8 @@ async def play(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                             )
-                            if os.path.exists(IMAGE_THUMBNAIL):
-                                os.remove(IMAGE_THUMBNAIL)
+                            # if os.path.exists(IMAGE_THUMBNAIL):
+                            os.remove(IMAGE_THUMBNAIL)
                         except Exception as ep:
                             await m.reply(f"`{ep}`")
 
@@ -327,8 +328,8 @@ async def vplay(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                         )
-                         if os.path.exists(IMAGE_THUMBNAIL):
-                             os.remove(IMAGE_THUMBNAIL)
+                        # if os.path.exists(IMAGE_THUMBNAIL):
+                        os.remove(IMAGE_THUMBNAIL)
                     else:
                         try:
                             await call_py.join_group_call(
@@ -348,8 +349,8 @@ async def vplay(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                             )
-                            if os.path.exists(IMAGE_THUMBNAIL):
-                                os.remove(IMAGE_THUMBNAIL)
+                            # if os.path.exists(IMAGE_THUMBNAIL):
+                            os.remove(IMAGE_THUMBNAIL)
                         except Exception as ep:
                             await m.reply(f" **ERROR**\n`{ep}`")
 
