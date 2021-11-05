@@ -193,8 +193,6 @@ async def play(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                         )
-                        if os.path.exists(IMAGE_THUMBNAIL):
-                            os.remove(IMAGE_THUMBNAIL)
                     else:
                         try:
                             await call_py.join_group_call(
@@ -217,8 +215,6 @@ async def play(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                             )
-                            if os.path.exists(IMAGE_THUMBNAIL):
-                                os.remove(IMAGE_THUMBNAIL)
                         except Exception as ep:
                             await m.reply(f"`{ep}`")
 
@@ -327,8 +323,6 @@ async def vplay(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                         )
-                        if os.path.exists(IMAGE_THUMBNAIL):
-                            os.remove(IMAGE_THUMBNAIL)
                     else:
                         try:
                             await call_py.join_group_call(
@@ -349,8 +343,6 @@ async def vplay(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                             )
-                            if os.path.exists(IMAGE_THUMBNAIL):
-                                os.remove(IMAGE_THUMBNAIL)
                         except Exception as ep:
                             await m.reply(f" **ERROR**\n`{ep}`")
 
