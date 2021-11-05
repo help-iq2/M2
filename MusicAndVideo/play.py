@@ -18,7 +18,7 @@ from youtubesearchpython import VideosSearch
 from config import HNDLR, bot, call_py
 from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
 
-AMBIFOTO = [
+AMBILFOTO = [
     "https://telegra.ph/file/cbdd8b864c39b394de8f6.jpg",
     "https://telegra.ph/file/24126cf48ed2bc9f6ee60.jpg",
     "https://telegra.ph/file/9e8adc4d38dc05e913fd1.jpg",
