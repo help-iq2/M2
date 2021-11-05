@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 from config import HNDLR
 
 
-@Client.on_message(filters.command("tr ?(.*)"))
+@Client.on_message(filters.command(["tr", "trad"], prefixes=f"{HNDLR}"))
 async def _(event):
     if event.fwd_from:
         return
