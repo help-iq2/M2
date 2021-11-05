@@ -1,5 +1,5 @@
-import io
 import asyncio
+import io
 import random
 
 import requests
