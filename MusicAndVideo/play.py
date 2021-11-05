@@ -183,7 +183,7 @@ async def play(client, m: Message):
                         await huehue.delete()
                         await client.send_photo(
                             chat_id,
-                            photo=IMAGE_THUMBNAIL,
+                            photo=f"{IMAGE_THUMBNAI}",
                             caption=f"""
 **#⃣ Lagu Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({url})
@@ -205,7 +205,7 @@ async def play(client, m: Message):
                             await huehue.delete()
                             await client.send_photo(
                                 chat_id,
-                                photo=IMAGE_THUMBNAIL,
+                                photo=f"{IMAGE_THUMBNAI}",
                                 caption=f"""
 **▶ Mulai Memutar Lagu
 🏷️ Judul: [{songname}]({url})
@@ -333,7 +333,7 @@ async def vplay(client, m: Message):
                             await huehue.delete()
                             await client.send_photo(
                                 chat_id,
-                                photo=IMAGE_THUMBNAIL,
+                                photo=f"{IMAGE_THUMBNAI}",
                                 caption=f"""
 **▶ Mulai Memutar Video
 🏷️ Judul: [{songname}]({url})
