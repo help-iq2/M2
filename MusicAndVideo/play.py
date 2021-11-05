@@ -36,8 +36,9 @@ AMBILFOTO = [
 
 IMAGE = random.choice(AMBILFOTO)
 THUMBNAIL = Image.open(io.BytesIO(requests.get(IMAGE).content))
-IMAGE_THUMBNAIL = ImageDraw.Draw(THUMBNAIL)
-
+APN = ImageDraw.Draw(THUMBNAIL)
+IMAGE_THUMBNAIL = "vcg.png"
+THUMBNAIL.save(IMAGE_THUMBNAIL, "png")
 
 # music player
 def ytsearch(query):
@@ -213,6 +214,8 @@ async def play(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                             )
+                            if os.path.exists(IMAGE_THUMBNAIL):
+                                    os.remove(IMAGE_THUMBNAIL)
                         except Exception as ep:
                             await m.reply(f"`{ep}`")
 
@@ -340,6 +343,8 @@ async def vplay(client, m: Message):
 ====>[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗖𝗛𝗔𝗧](https://t.me/GroupMusicRandom)<====**
 """,
                             )
+                            if os.path.exists(IMAGE_THUMBNAIL):
+                                    os.remove(IMAGE_THUMBNAIL)
                         except Exception as ep:
                             await m.reply(f" **ERROR**\n`{ep}`")
 
