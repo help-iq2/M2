@@ -38,8 +38,8 @@ AMBILFOTO = [
 ]
 
 IMAGE = random.choice(AMBILFOTO)
-THUMBNAIL = Image.open(io.BytesIO(requests.get(IMAGE).content))
-APN = ImageDraw.Draw(THUMBNAIL)
+IMAGE_THUMBNAIL = Image.open(io.BytesIO(requests.get(IMAGE).content))
+APN = ImageDraw.Draw(IMAGE_THUMBNAIL)
 IMAGE_THUMBNAIL.save("vcg.png", "png")
 
 # music player
