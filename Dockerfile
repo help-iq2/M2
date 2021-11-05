@@ -1,4 +1,4 @@
-FROM python:3.9.7-slim-buster
+FROM nikolaik/python-nodejs:python3.9.7-nodejs16
 
 RUN apt update && apt upgrade -y
 RUN apt install python3-pip -y
