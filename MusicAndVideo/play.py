@@ -196,8 +196,6 @@ async def play(client, m: Message):
                         )
                         if os.path.exists(IMAGE_THUMBNAIL):
                             os.remove(IMAGE_THUMBNAIL)
-                    except Exception as ep:
-                        await m.reply(f" **ERROR**\n`{ep}`")
                     else:
                         try:
                             await call_py.join_group_call(
@@ -331,8 +329,6 @@ async def vplay(client, m: Message):
                         )
                          if os.path.exists(IMAGE_THUMBNAIL):
                              os.remove(IMAGE_THUMBNAIL)
-                     except Exception as ep:
-                         await m.reply(f" **ERROR**\n`{ep}`")
                     else:
                         try:
                             await call_py.join_group_call(
