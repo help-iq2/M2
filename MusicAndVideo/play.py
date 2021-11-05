@@ -6,7 +6,7 @@ import os
 import random
 
 import requests
-from PIL import Image, ImageDraw
+from PIL import Image
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pytgcalls import StreamType
@@ -39,7 +39,7 @@ AMBILFOTO = [
 
 IMAGE = random.choice(AMBILFOTO)
 THUMBNAIL = Image.open(io.BytesIO(requests.get(IMAGE).content))
-IMAGE_THUMBNAIL = "final.jpg" 
+IMAGE_THUMBNAIL = "final.jpg"
 THUMBNAIL.save(IMAGE_THUMBNAIL, "jpg")
 
 # music player
