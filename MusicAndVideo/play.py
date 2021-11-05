@@ -40,8 +40,8 @@ AMBILFOTO = [
 IMAGE = random.choice(AMBILFOTO)
 THUMBNAIL = Image.open(io.BytesIO(requests.get(IMAGE).content))
 APP = ImageDraw.Draw(THUMBNAIL)
-IMAGE_THUMBNAIL = "final.jpg"
-THUMBNAIL.save(IMAGE_THUMBNAIL, "jpg")
+IMAGE_THUMBNAIL = "final.png"
+THUMBNAIL.save(IMAGE_THUMBNAIL, "png")
 
 # music player
 def ytsearch(query):
