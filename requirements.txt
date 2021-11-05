@@ -12,4 +12,5 @@ youtube-search-python
 yt-dlp
 python-dotenv
 gTTS
+emoji
 googletrans==4.0.0rc1
