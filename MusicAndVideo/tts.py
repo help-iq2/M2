@@ -7,7 +7,7 @@ from gtts import gTTS
 from pyrogram import Client
 from pyrogram.types import Message
 
-from MusicAndVideoPlayer.helpers.filters import command
+from MusicAndVideo.helpers.filters import command
 
 
 def convert(text):
