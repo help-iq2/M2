@@ -1,10 +1,10 @@
 import requests
-from pyrogram import Client, filters
+from pyrogram import Client
 
-from config import HNDLR
+from MusicAndVideoPlayer.helpers.filters import command
 
 
-@Client.on_message(filters.command(["truth"], prefixes=f"{HNDLR}"))
+@Client.on_message(command(["truth", "kejujuran"]))
 async def truth(client, message):
     try:
         resp = requests.get("https://api-tede.herokuapp.com/api/truth").json()
@@ -13,8 +13,7 @@ async def truth(client, message):
     except Exception:
         await message.reply_text("Lagi error truth nya")
 
-
-@Client.on_message(filters.command(["dare"], prefixes=f"{HNDLR}"))
+@Client.on_message(command(["dare", "tantangan"]))
 async def dare(client, message):
     try:
         resp = requests.get("https://api-tede.herokuapp.com/api/dare").json()
