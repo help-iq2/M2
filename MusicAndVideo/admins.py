@@ -5,7 +5,7 @@ from config import HNDLR, call_py
 from MusicAndVideo.helpers.decorators import authorized_users_only
 from MusicAndVideo.helpers.handlers import skip_current_song, skip_item
 from MusicAndVideo.helpers.queues import QUEUE, clear_queue
-from MusicAndVideoPlayer.helpers.filters import command, other_filters
+from MusicAndVideo.helpers.filters import command, other_filters
 
 
 @Client.on_message(command(["skip", "lewat"]) & other_filters)
