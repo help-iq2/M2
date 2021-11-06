@@ -63,6 +63,7 @@ async def restart(client, m: Message):
     os.execl(sys.executable, sys.executable, *sys.argv)
     quit()
 
+
 @Client.on_message(filters.private)
 async def start(client, m: Message):
     await m.delete()
