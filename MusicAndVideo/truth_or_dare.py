@@ -1,7 +1,7 @@
 import requests
 from pyrogram import Client
 
-from MusicAndVideoPlayer.helpers.filters import command
+from MusicAndVideo.helpers.filters import command
 
 
 @Client.on_message(command(["truth", "kejujuran"]))
