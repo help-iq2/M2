@@ -1,7 +1,6 @@
-from pyrogram import Client, filters
+from pyrogram import Client
 from pyrogram.types import Message
 
-from config import HNDLR
 from MusicAndVideo.helpers.get_file_id import get_file_id
 from MusicAndVideoPlayer.helpers.filters import command
 
