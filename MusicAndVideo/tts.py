@@ -4,7 +4,7 @@ from io import BytesIO
 
 from googletrans import Translator
 from gtts import gTTS
-from pyrogram import Client, filters
+from pyrogram import Client
 from pyrogram.types import Message
 
 from MusicAndVideoPlayer.helpers.filters import command
