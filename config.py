@@ -1,7 +1,7 @@
 import os
 
 from dotenv import load_dotenv
-from pyrogram import Client, filters
+from pyrogram import Client
 from pytgcalls import PyTgCalls
 
 # For Local Deploy
