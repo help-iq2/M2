@@ -8,8 +8,9 @@ from MusicAndVideo.helpers.merrors import capture_err
 @Client.on_message(filters.command(["git", "github"], prefixes=f"{HNDLR}"))
 @capture_err
 async def github(_, message):
+    await message.delete()
     if len(message.command) != 2:
-        await message.reply_text("/git Username")
+        await message.reply_text("• Harap masukkan username github yang valid")
         return
     username = message.text.split(None, 1)[1]
     URL = f"https://api.github.com/users/{username}"
