@@ -1,7 +1,7 @@
 ##### 🎶 Music Dan Video Player UserBot 🎶
 ### 🤖 Telegram UserBot Untuk Memutar Lagu Dan Video Di Obrolan Suara Telegram.
 
-## ✨ Didukung Oleh 
+# ✨ Didukung Oleh 
 - [PyTgCalls](https://github.com/pytgcalls/pytgcalls)
 - [Pyrogram](https://github.com/pyrogram/pyrogram)
 
@@ -11,7 +11,7 @@
 - FFMPEG
 - Nodejs v16+
 
-### 🛠 MENU BANTUAN
+## 🛠 MENU BANTUAN
 
 #### ⚡ PERINTAH UNTUK SEMUA ORANG
 - `/play [judul lagu | link youtube | balas file audio]` - untuk memutar lagu
@@ -28,7 +28,7 @@
 
 ## 💡 Deployment
 
-# 💜 Heroku
+## 💜 Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/XtomiSN/MusicAndVideoPlayer)
 
