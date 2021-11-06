@@ -8,7 +8,7 @@ import time
 import aiofiles
 import aiohttp
 import wget
-from pyrogram import Client, filters
+from pyrogram import Client
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
 from youtubesearchpython import SearchVideos
