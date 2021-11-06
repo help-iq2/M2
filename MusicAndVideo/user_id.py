@@ -3,9 +3,10 @@ from pyrogram.types import Message
 
 from config import HNDLR
 from MusicAndVideo.helpers.get_file_id import get_file_id
+from MusicAndVideoPlayer.helpers.filters import command
 
 
-@Client.on_message(filters.command(["id"], prefixes=f"{HNDLR}"))
+@Client.on_message(command("id"))
 async def showid(_, message: Message):
     chat_type = message.chat.type
 
