@@ -7,7 +7,7 @@ from gtts import gTTS
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from config import HNDLR
+from MusicAndVideoPlayer.helpers.filters import command
 
 
 def convert(text):
@@ -20,7 +20,7 @@ def convert(text):
     return audio
 
 
-@Client.on_message(filters.command(["tts"], prefixes=f"{HNDLR}"))
+@Client.on_message(command("tts")
 async def text_to_speech(_, message: Message):
     if not message.reply_to_message:
         return await message.reply_text("💡 membalas beberapa teks !")
