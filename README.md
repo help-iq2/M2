@@ -1,7 +1,7 @@
 ##### 🎶 Music Dan Video Player UserBot 🎶
-# 🤖 Telegram UserBot Untuk Memutar Lagu Dan Video Di Obrolan Suara Telegram.
+### 🤖 Telegram UserBot Untuk Memutar Lagu Dan Video Di Obrolan Suara Telegram.
 
-## Didukung Oleh 
+## ✨ Didukung Oleh 
 - [PyTgCalls](https://github.com/pytgcalls/pytgcalls)
 - [Pyrogram](https://github.com/pyrogram/pyrogram)
 
