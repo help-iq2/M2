@@ -7,6 +7,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import HNDLR, SUDO_USERS
+from MusicAndVideoPlayer.helpers.filters import command
 
 # System Uptime
 START_TIME = datetime.utcnow()
@@ -45,9 +46,7 @@ async def ping(client, m: Message):
     )
 
 
-@Client.on_message(
-    filters.user(SUDO_USERS) & filters.command(["restart"], prefixes=f"{HNDLR}")
-)
+@Client.on_message(command(["ping", "cek"]))
 async def restart(client, m: Message):
     await m.delete()
     loli = await m.reply("1")
@@ -78,7 +77,7 @@ async def start(client, m: Message):
     await m.reply(START, disable_web_page_preview=True)
 
 
-@Client.on_message(filters.command(["help"], prefixes=f"{HNDLR}"))
+@Client.on_message(command(["help", "bantuan"]))
 async def help(client, m: Message):
     await m.delete()
     HELP = f"""
@@ -102,7 +101,7 @@ async def help(client, m: Message):
     await m.reply(HELP)
 
 
-@Client.on_message(filters.command(["repo"], prefixes=f"{HNDLR}"))
+@Client.on_message(command(["repo", "deploy"]))
 async def repo(client, m: Message):
     await m.delete()
     REPO = f"""
