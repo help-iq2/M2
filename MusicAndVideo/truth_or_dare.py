@@ -13,6 +13,7 @@ async def truth(client, message):
     except Exception:
         await message.reply_text("Lagi error truth nya")
 
+
 @Client.on_message(command(["dare", "tantangan"]))
 async def dare(client, message):
     try:
