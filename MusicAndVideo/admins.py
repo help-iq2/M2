@@ -5,9 +5,10 @@ from config import HNDLR, call_py
 from MusicAndVideo.helpers.decorators import authorized_users_only
 from MusicAndVideo.helpers.handlers import skip_current_song, skip_item
 from MusicAndVideo.helpers.queues import QUEUE, clear_queue
+from MusicAndVideoPlayer.helpers.filters import command, other_filters
 
 
-@Client.on_message(filters.command(["skip"], prefixes=f"{HNDLR}"))
+@Client.on_message(command(["skip", "lewat"]) & other_filters)
 @authorized_users_only
 async def skip(client, m: Message):
     await m.delete()
@@ -41,7 +42,7 @@ async def skip(client, m: Message):
             await m.reply(OP)
 
 
-@Client.on_message(filters.command(["end", "stop"], prefixes=f"{HNDLR}"))
+@Client.on_message(command(["end", "stop"]) & other_filters)
 @authorized_users_only
 async def stop(client, m: Message):
     await m.delete()
@@ -57,7 +58,7 @@ async def stop(client, m: Message):
         await m.reply("**❌ Tidak ada apapun yang sedang diputar!**")
 
 
-@Client.on_message(filters.command(["pause"], prefixes=f"{HNDLR}"))
+@Client.on_message(command(["pause", "jeda"]) & other_filters)
 @authorized_users_only
 async def pause(client, m: Message):
     await m.delete()
@@ -74,7 +75,7 @@ async def pause(client, m: Message):
         await m.reply("** ❌ Tidak ada apapun yang sedang diputar!**")
 
 
-@Client.on_message(filters.command(["resume"], prefixes=f"{HNDLR}"))
+@Client.on_message(command(["resume", "lanjut"]) & other_filters)
 @authorized_users_only
 async def resume(client, m: Message):
     await m.delete()
