@@ -7,7 +7,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import HNDLR
-from MusicAndVideoPlayer.helpers.filters import command
+from MusicAndVideoPlayer.helpers.filters import command, sudo_only
 
 # System Uptime
 START_TIME = datetime.utcnow()
@@ -31,7 +31,7 @@ async def _human_time_duration(seconds):
     return ", ".join(parts)
 
 
-@Client.on_message(filters.command(["ping"], prefixes=f"{HNDLR}"))
+@Client.on_message(command(["ping", "cek"]))
 async def ping(client, m: Message):
     await m.delete()
     start = time()
@@ -46,7 +46,8 @@ async def ping(client, m: Message):
     )
 
 
-@Client.on_message(command(["ping", "cek"]))
+@Client.on_message(command(["restart", "ulang"]))
+@sudo_only
 async def restart(client, m: Message):
     await m.delete()
     loli = await m.reply("1")
