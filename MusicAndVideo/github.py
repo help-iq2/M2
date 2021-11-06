@@ -2,7 +2,7 @@ import aiohttp
 from pyrogram import Client
 
 from MusicAndVideo.helpers.merrors import capture_err
-from MusicAndVideoPlayer.helpers.filters import command
+from MusicAndVideo.helpers.filters import command
 
 
 @Client.on_message(command(["git", "github"]))
