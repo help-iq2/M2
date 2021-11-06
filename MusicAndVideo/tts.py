@@ -20,7 +20,7 @@ def convert(text):
     return audio
 
 
-@Client.on_message(command("tts")
+@Client.on_message(command("tts")/
 async def text_to_speech(_, message: Message):
     if not message.reply_to_message:
         return await message.reply_text("💡 membalas beberapa teks !")
