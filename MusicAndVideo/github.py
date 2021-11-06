@@ -1,9 +1,9 @@
 import aiohttp
-from pyrogram import Client, filters
+from pyrogram import Client
 
-from config import HNDLR
 from MusicAndVideo.helpers.merrors import capture_err
 from MusicAndVideoPlayer.helpers.filters import command
+
 
 @Client.on_message(command(["git", "github"]))
 @capture_err
