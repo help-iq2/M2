@@ -7,7 +7,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import HNDLR
-from MusicAndVideoPlayer.helpers.filters import command, sudo_only
+from MusicAndVideo.helpers.filters import command, sudo_only
 
 # System Uptime
 START_TIME = datetime.utcnow()
