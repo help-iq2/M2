@@ -38,7 +38,7 @@ def isArgInt(message: Message) -> bool:
         return [False, 0]
 
 
-@Client.on_message(filters.command(["q", "quote"], prefixes=f"{HNDLR}"))
+@Client.on_message(command(["q", "quote"]))
 @capture_err
 async def quotly_func(client, message: Message):
     if not message.reply_to_message:
