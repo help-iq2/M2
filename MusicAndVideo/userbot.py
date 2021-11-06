@@ -6,7 +6,6 @@ from time import time
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from config import HNDLR
 from MusicAndVideo.helpers.filters import command, sudo_only
 
 # System Uptime
