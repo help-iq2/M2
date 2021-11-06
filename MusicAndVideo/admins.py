@@ -1,7 +1,7 @@
 from pyrogram import Client
 from pyrogram.types import Message
 
-from config import HNDLR, call_py
+from config import call_py
 from MusicAndVideo.helpers.decorators import authorized_users_only
 from MusicAndVideo.helpers.filters import command, other_filters
 from MusicAndVideo.helpers.handlers import skip_current_song, skip_item
