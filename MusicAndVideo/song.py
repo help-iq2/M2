@@ -14,7 +14,7 @@ from pyrogram.types import Message
 from youtubesearchpython import SearchVideos
 from yt_dlp import YoutubeDL
 
-from MusicAndVideoPlayer.helpers.filters import command
+from MusicAndVideo.helpers.filters import command
 
 
 @Client.on_message(command(["song", "music"]))
