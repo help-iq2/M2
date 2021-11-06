@@ -17,8 +17,8 @@ from pytgcalls.types.input_stream.quality import (
 from youtubesearchpython import VideosSearch
 
 from config import HNDLR, bot, call_py
-from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
 from MusicAndVideo.helpers.filters import command, other_filters
+from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
 
 AMBILFOTO = glob.glob("MusicAndVideo/thumbnail/*")
 IMAGE_THUMBNAIL = random.choice(AMBILFOTO)
