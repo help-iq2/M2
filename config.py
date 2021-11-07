@@ -12,7 +12,7 @@ if os.path.exists(".env"):
 API_ID = int(os.getenv("API_ID"))
 API_HASH = os.getenv("API_HASH")
 SESSION = os.getenv("SESSION")
-COMMAND_PREFIXES = list(os.getenv("COMMAND_PREFIXES", "T O M I / ! ?").split())
+HNDLR = os.getenv("HNDLR", "/")
 SUDO_USERS = list(map(int, os.getenv("SUDO_USERS").split()))
 
 # Cellmusic
