@@ -8,16 +8,16 @@ import time
 import aiofiles
 import aiohttp
 import wget
-from pyrogram import Client
+from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
 from youtubesearchpython import SearchVideos
 from yt_dlp import YoutubeDL
 
-from MusicAndVideo.helpers.filters import command
+from config import HNDLR
 
 
-@Client.on_message(command(["song", "music"]))
+@Client.on_message(filters.command(["song", "music"], prefixes=f"{HNDLR}"))
 async def song(client, message: Message):
     await message.delete()
     urlissed = get_text(message)
@@ -232,7 +232,7 @@ def time_to_seconds(time):
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":"))))
 
 
-@Client.on_message(command(["vsong", "video"]))
+@Client.on_message(filters.command(["vsong", "video"], prefixes=f"{HNDLR}"))
 async def vsong(client, message: Message):
     await message.delete()
     urlissed = get_text(message)
