@@ -1,11 +1,11 @@
 import aiohttp
-from pyrogram import Client
+from pyrogram import Client, filters
 
-from MusicAndVideo.helpers.filters import command
+from config import HNDLR
 from MusicAndVideo.helpers.merrors import capture_err
 
 
-@Client.on_message(command(["git", "github"]))
+@Client.on_message(filters.command(["git", "github"], prefixes=f"{HNDLR}"))
 @capture_err
 async def github(_, message):
     await message.delete()
