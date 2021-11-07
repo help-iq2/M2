@@ -2,11 +2,11 @@ from io import BytesIO
 from traceback import format_exc
 
 import aiohttp
-from pyrogram import Client
+from pyrogram import Client, filters
 from pyrogram.types import Message
 from Python_ARQ import ARQ
 
-from MusicAndVideo.helpers.filters import command
+from config import HNDLR
 from MusicAndVideo.helpers.merrors import capture_err
 
 ARQ_API_KEY = "QFOTZM-GSZUFY-CHGHRX-TDEHOZ-ARQ"
@@ -38,7 +38,7 @@ def isArgInt(message: Message) -> bool:
         return [False, 0]
 
 
-@Client.on_message(command(["q", "quote"]))
+@Client.on_message(filters.command(["q", "quote"], prefixes=f"{HNDLR}"))
 @capture_err
 async def quotly_func(client, message: Message):
     if not message.reply_to_message:
