@@ -1,14 +1,13 @@
-from pyrogram import Client
+from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from config import call_py
+from config import HNDLR, call_py
 from MusicAndVideo.helpers.decorators import authorized_users_only
-from MusicAndVideo.helpers.filters import command, other_filters
 from MusicAndVideo.helpers.handlers import skip_current_song, skip_item
 from MusicAndVideo.helpers.queues import QUEUE, clear_queue
 
 
-@Client.on_message(command(["skip", "lewat"]) & other_filters)
+@Client.on_message(filters.command(["skip"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def skip(client, m: Message):
     await m.delete()
@@ -42,7 +41,7 @@ async def skip(client, m: Message):
             await m.reply(OP)
 
 
-@Client.on_message(command(["end", "stop"]) & other_filters)
+@Client.on_message(filters.command(["end", "stop"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def stop(client, m: Message):
     await m.delete()
@@ -58,7 +57,7 @@ async def stop(client, m: Message):
         await m.reply("**❌ Tidak ada apapun yang sedang diputar!**")
 
 
-@Client.on_message(command(["pause", "jeda"]) & other_filters)
+@Client.on_message(filters.command(["pause"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def pause(client, m: Message):
     await m.delete()
@@ -75,7 +74,7 @@ async def pause(client, m: Message):
         await m.reply("** ❌ Tidak ada apapun yang sedang diputar!**")
 
 
-@Client.on_message(command(["resume", "lanjut"]) & other_filters)
+@Client.on_message(filters.command(["resume"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def resume(client, m: Message):
     await m.delete()
