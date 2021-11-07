@@ -6,7 +6,7 @@ from time import time
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from MusicAndVideo.helpers.filters import command, sudo_only
+from config import HNDLR, SUDO_USERS
 
 # System Uptime
 START_TIME = datetime.utcnow()
@@ -30,7 +30,7 @@ async def _human_time_duration(seconds):
     return ", ".join(parts)
 
 
-@Client.on_message(command(["ping", "cek"]))
+@Client.on_message(filters.command(["ping"], prefixes=f"{HNDLR}"))
 async def ping(client, m: Message):
     await m.delete()
     start = time()
@@ -45,8 +45,9 @@ async def ping(client, m: Message):
     )
 
 
-@Client.on_message(command(["restart", "ulang"]))
-@sudo_only
+@Client.on_message(
+    filters.user(SUDO_USERS) & filters.command(["restart"], prefixes=f"{HNDLR}")
+)
 async def restart(client, m: Message):
     await m.delete()
     loli = await m.reply("1")
@@ -62,9 +63,9 @@ async def restart(client, m: Message):
     os.execl(sys.executable, sys.executable, *sys.argv)
     quit()
 
-
 @Client.on_message(filters.private)
 async def start(client, m: Message):
+    await m.delete()
     START = f"""
 <b>✨ Selamat Datang {m.from_user.mention}!
 
@@ -77,7 +78,7 @@ async def start(client, m: Message):
     await m.reply(START, disable_web_page_preview=True)
 
 
-@Client.on_message(command(["help", "bantuan"]))
+@Client.on_message(filters.command(["help"], prefixes=f"{HNDLR}"))
 async def help(client, m: Message):
     await m.delete()
     HELP = f"""
@@ -101,7 +102,7 @@ async def help(client, m: Message):
     await m.reply(HELP)
 
 
-@Client.on_message(command(["repo", "deploy"]))
+@Client.on_message(filters.command(["repo"], prefixes=f"{HNDLR}"))
 async def repo(client, m: Message):
     await m.delete()
     REPO = f"""
