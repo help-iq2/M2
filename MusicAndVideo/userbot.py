@@ -66,7 +66,6 @@ async def restart(client, m: Message):
 
 @Client.on_message(filters.private)
 async def start(client, m: Message):
-    await m.delete()
     START = f"""
 <b>✨ Selamat Datang {m.from_user.mention}!
 
