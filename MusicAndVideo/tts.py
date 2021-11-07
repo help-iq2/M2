@@ -4,10 +4,10 @@ from io import BytesIO
 
 from googletrans import Translator
 from gtts import gTTS
-from pyrogram import Client
+from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from MusicAndVideo.helpers.filters import command
+from config import HNDLR
 
 
 def convert(text):
@@ -20,7 +20,7 @@ def convert(text):
     return audio
 
 
-@Client.on_message(command("tts"))
+@Client.on_message(filters.command(["tts"], prefixes=f"{HNDLR}"))
 async def text_to_speech(_, message: Message):
     if not message.reply_to_message:
         return await message.reply_text("💡 membalas beberapa teks !")
