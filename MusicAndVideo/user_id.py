@@ -1,11 +1,11 @@
-from pyrogram import Client
+from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from MusicAndVideo.helpers.filters import command
+from config import HNDLR
 from MusicAndVideo.helpers.get_file_id import get_file_id
 
 
-@Client.on_message(command("id"))
+@Client.on_message(filters.command(["id"], prefixes=f"{HNDLR}"))
 async def showid(_, message: Message):
     chat_type = message.chat.type
 
