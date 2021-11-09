@@ -35,8 +35,15 @@ async def ping(client, m: Message):
     await m.delete()
     start = time()
     current_time = datetime.utcnow()
-    m_reply = await m.reply_text("✨")
-    await m_reply.edit("⚡")
+    m_reply = await m.reply_text("Ping.")
+    await m_reply.edit("Ping..")
+    await m_reply.edit("Ping...")
+    await m_reply.edit("Ping....")
+    await m_reply.edit("Ping.....")
+    await m_reply.edit("Ping......")
+    await m_reply.edit("Ping.......")
+    await m_reply.edit("Ping........")
+    await m_reply.edit("Ping.........")
     delta_ping = time() - start
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
@@ -62,20 +69,6 @@ async def restart(client, m: Message):
     await loli.edit("**✅ Userbot Di Mulai Ulang**")
     os.execl(sys.executable, sys.executable, *sys.argv)
     quit()
-
-
-@Client.on_message(filters.private)
-async def start(client, m: Message):
-    START = f"""
-<b>✨ Selamat Datang {m.from_user.mention}!
-
-💬 Saya Adalah [Userbot](https://t.me/GroupMusicRandom) Yang Ditugaskan Untuk Memutar lagu Dan Video Di Grup Telegram Andai
-
-📚 Untuk Mengetahui Cara Menggunakan Saya Bagaimana Silahkan Kirim Perintah » `/help`
-
-💡 Jika Anda Menginginkan Saya Bergabung Di Grup Anda Silahkan Kirim Link Grup Telegram Andai Kepada @Tomi_sn</b>
-"""
-    await m.reply(START, disable_web_page_preview=True)
 
 
 @Client.on_message(filters.command(["help"], prefixes=f"{HNDLR}"))
