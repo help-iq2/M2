@@ -1,5 +1,3 @@
-import asyncio
-
 from pytgcalls import idle
 
 from config import call_py
