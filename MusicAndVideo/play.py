@@ -19,9 +19,8 @@ from youtubesearchpython import VideosSearch
 from config import HNDLR, bot, call_py
 from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
 
-AMBILFOTO = glob.glob("MusicAndVideo/thumbnail/*")
-IMAGE_THUMBNAIL = random.choice(AMBILFOTO)
-IMAGE_THUMBNAIL.save("final.png")
+ambil_foto = glob.glob("MusicAndVideo/thumbnail/*")
+image_thumbnail = random.choice(ambil_foto)
 
 # music player
 def ytsearch(query):
@@ -167,7 +166,7 @@ async def play(client, m: Message):
                         await huehue.delete()
                         await client.send_photo(
                             chat_id,
-                            photo="final.png",
+                            photo=image_thumbnail,
                             caption=f"""
 **#⃣ Lagu Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({url})
@@ -189,7 +188,7 @@ async def play(client, m: Message):
                             await huehue.delete()
                             await client.send_photo(
                                 chat_id,
-                                photo="final.png",
+                                photo=image_thumbnail,
                                 caption=f"""
 **▶ Mulai Memutar Lagu
 🏷️ Judul: [{songname}]({url})
@@ -297,7 +296,7 @@ async def vplay(client, m: Message):
                         await huehue.delete()
                         await client.send_photo(
                             chat_id,
-                            photo="final.png",
+                            photo=image_thumbnail,
                             caption=f"""
 **#⃣ Video Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({url})
@@ -317,7 +316,7 @@ async def vplay(client, m: Message):
                             await huehue.delete()
                             await client.send_photo(
                                 chat_id,
-                                photo="final.png",
+                                photo=image_thumbnail,
                                 caption=f"""
 **▶ Mulai Memutar Video
 🏷️ Judul: [{songname}]({url})
