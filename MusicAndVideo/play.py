@@ -21,6 +21,7 @@ from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
 
 AMBILFOTO = glob.glob("MusicAndVideo/thumbnail/*")
 IMAGE_THUMBNAIL = random.choice(AMBILFOTO)
+IMAGE_THUMBNAIL.save("final.png")
 
 # music player
 def ytsearch(query):
@@ -166,7 +167,7 @@ async def play(client, m: Message):
                         await huehue.delete()
                         await client.send_photo(
                             chat_id,
-                            photo=f"{IMAGE_THUMBNAIL}",
+                            photo="final.png",
                             caption=f"""
 **#⃣ Lagu Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({url})
@@ -188,7 +189,7 @@ async def play(client, m: Message):
                             await huehue.delete()
                             await client.send_photo(
                                 chat_id,
-                                photo=f"{IMAGE_THUMBNAIL}",
+                                photo="final.png",
                                 caption=f"""
 **▶ Mulai Memutar Lagu
 🏷️ Judul: [{songname}]({url})
@@ -296,7 +297,7 @@ async def vplay(client, m: Message):
                         await huehue.delete()
                         await client.send_photo(
                             chat_id,
-                            photo=f"{IMAGE_THUMBNAIL}",
+                            photo="final.png",
                             caption=f"""
 **#⃣ Video Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({url})
@@ -316,7 +317,7 @@ async def vplay(client, m: Message):
                             await huehue.delete()
                             await client.send_photo(
                                 chat_id,
-                                photo=f"{IMAGE_THUMBNAIL}",
+                                photo="final.png",
                                 caption=f"""
 **▶ Mulai Memutar Video
 🏷️ Judul: [{songname}]({url})
