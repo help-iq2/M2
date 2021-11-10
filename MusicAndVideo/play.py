@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 import asyncio
+import aiohttp
 import random
 
 from PIL import Image
@@ -34,8 +35,14 @@ userid = [
     "MusicAndVideo_12",
 ]
 
-user_id = random.choice(userid)
-image = Image.open(f"MusicAndVideo/thumbnail/{user_id}.jpg")
+async def generate_cover(songname):
+    async with aiohttp.ClientSession() as session, session.get(songname) as resp:
+        if resp.status == 200:
+            f = await aiofiles.open("background.png", mode="wb")
+            await f.write(await resp.read())
+            await f.close()
+            user_id = random.choice(userid)
+            image = Image.open(f"MusicAndVideo/thumbnail/{user_id}.jpg")
 
 # music player
 def ytsearch(query):
