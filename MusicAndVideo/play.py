@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
 import asyncio
-import glob
 import random
 
 from pyrogram import Client, filters
@@ -18,7 +17,6 @@ from youtubesearchpython import VideosSearch
 
 from config import HNDLR, bot, call_py
 from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
-
 
 userid = [
     "cbdd8b864c39b394de8f6",
