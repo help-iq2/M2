@@ -1,9 +1,9 @@
 from __future__ import unicode_literals
 
 import asyncio
-import aiohttp
 import random
 
+import aiohttp
 from PIL import Image
 from pyrogram import Client, filters
 from pyrogram.types import Message
@@ -35,6 +35,7 @@ userid = [
     "MusicAndVideo_12",
 ]
 
+
 async def generate_cover(songname):
     async with aiohttp.ClientSession() as session, session.get(songname) as resp:
         if resp.status == 200:
@@ -42,7 +43,8 @@ async def generate_cover(songname):
             await f.write(await resp.read())
             await f.close()
             user_id = random.choice(userid)
-            image = Image.open(f"MusicAndVideo/thumbnail/{user_id}.jpg")
+            Image.open(f"MusicAndVideo/thumbnail/{user_id}.jpg")
+
 
 # music player
 def ytsearch(query):
