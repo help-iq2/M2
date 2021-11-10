@@ -2,8 +2,8 @@ from __future__ import unicode_literals
 
 import asyncio
 import random
-from PIL import Image
 
+from PIL import Image
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pytgcalls import StreamType
