@@ -35,7 +35,7 @@ userid = [
 ]
 
 user_id = random.choice(userid)
-image = Image.open(f"MusicAndVideo/Thumbnail/{user_id}.jpg")
+image = Image.open(f"MusicAndVideo/thumbnail/{user_id}.jpg")
 
 # music player
 def ytsearch(query):
