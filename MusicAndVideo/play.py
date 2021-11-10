@@ -19,8 +19,22 @@ from youtubesearchpython import VideosSearch
 from config import HNDLR, bot, call_py
 from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
 
-ambil_foto = glob.glob("MusicAndVideo/thumbnail/*")
-image_thumbnail = random.choice(ambil_foto)
+
+userid = [
+    "cbdd8b864c39b394de8f6",
+    "24126cf48ed2bc9f6ee60",
+    "9e8adc4d38dc05e913fd1",
+    "806b59d49aa0e326a3184",
+    "83939bc9832dff8a83682",
+    "2aef497654499534d94de",
+    "7141b55e33b69a434f8c5",
+    "cbce4a97105ee1debdf91",
+    "7001368a78193f179bd67",
+    "1d1748506600b2da206c8",
+    "d081b03640c7cb4247b17",
+]
+
+user_id = random.choice(userid)
 
 # music player
 def ytsearch(query):
@@ -114,7 +128,7 @@ async def play(client, m: Message):
                 pos = add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await huehue.delete()
                 await m.reply_photo(
-                    photo="https://telegra.ph/file/d6f92c979ad96b2031cba.png",
+                    photo=f"https://telegra.ph/file/{user_id}.jpg",
                     caption=f"""
 **#⃣ Lagu Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({link})
@@ -134,7 +148,7 @@ async def play(client, m: Message):
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await huehue.delete()
                 await m.reply_photo(
-                    photo="https://telegra.ph/file/6213d2673486beca02967.png",
+                    photo=f"https://telegra.ph/file/{user_id}.jpg",
                     caption=f"""
 **▶ Mulai Memutar Lagu
 🏷️ Judul: [{songname}]({link})
@@ -166,7 +180,7 @@ async def play(client, m: Message):
                         await huehue.delete()
                         await client.send_photo(
                             chat_id,
-                            photo=f"{image_thumbnail}",
+                            photo=f"https://telegra.ph/file/{user_id}.jpg",
                             caption=f"""
 **#⃣ Lagu Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({url})
@@ -188,7 +202,7 @@ async def play(client, m: Message):
                             await huehue.delete()
                             await client.send_photo(
                                 chat_id,
-                                photo=f"{image_thumbnail}",
+                                photo=f"https://telegra.ph/file/{user_id}.jpg",
                                 caption=f"""
 **▶ Mulai Memutar Lagu
 🏷️ Judul: [{songname}]({url})
@@ -234,7 +248,7 @@ async def vplay(client, m: Message):
                 await huehue.delete()
                 await m.reply_photo(
                     chat_id,
-                    photo="https://telegra.ph/file/d6f92c979ad96b2031cba.png",
+                    photo=f"https://telegra.ph/file/{user_id}.jpg",
                     caption=f"""
 **#⃣ Video Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({link})
@@ -258,7 +272,7 @@ async def vplay(client, m: Message):
                 add_to_queue(chat_id, songname, dl, link, "Video", Q)
                 await huehue.delete()
                 await m.reply_photo(
-                    photo="https://telegra.ph/file/6213d2673486beca02967.png",
+                    photo=f"https://telegra.ph/file/{user_id}.jpg",
                     caption=f"""
 **▶ Mulai Memutar Video
 🏷️ Judul: [{songname}]({link})
@@ -296,7 +310,7 @@ async def vplay(client, m: Message):
                         await huehue.delete()
                         await client.send_photo(
                             chat_id,
-                            photo=f"{image_thumbnail}",
+                            photo=f"https://telegra.ph/file/{user_id}.jpg",
                             caption=f"""
 **#⃣ Video Di Antrian Ke {pos}
 🏷️ Judul: [{songname}]({url})
@@ -316,7 +330,7 @@ async def vplay(client, m: Message):
                             await huehue.delete()
                             await client.send_photo(
                                 chat_id,
-                                photo=f"{image_thumbnail}",
+                                photo=f"https://telegra.ph/file/{user_id}.jpg",
                                 caption=f"""
 **▶ Mulai Memutar Video
 🏷️ Judul: [{songname}]({url})
@@ -366,7 +380,7 @@ async def playfrom(client, m: Message):
                     add_to_queue(chat_id, songname, location, link, "Audio", 0)
                     await hmm.delete()
                     await m.reply_photo(
-                        photo="https://telegra.ph/file/6213d2673486beca02967.png",
+                        photo=f"https://telegra.ph/file/{user_id}.jpg",
                         caption=f"""
 **▶ Mulai Memutar Lagu Dari {chat}
 🏷️ Judul: [{songname}]({link})
