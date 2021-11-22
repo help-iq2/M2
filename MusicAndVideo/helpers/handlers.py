@@ -75,9 +75,7 @@ async def on_end_handler(_, update: Update):
          await bot.send_message(chat_id, "**Beberapa Kesalahan Terjadi** \n `Menghapus Antrian dan Meninggalkan Obrolan Suara...`")
       else:
          await bot.send_message(chat_id, f"**▶️ SEKARANG MEMUTAR** \n[{op[0]}]({op[1]}) | `{op[2]}`", disable_web_page_preview=True)
-   else:
-      pass
-
+   
 
 @call_py.on_closed_voice_chat()
 async def close_handler(client: PyTgCalls, chat_id: int):
