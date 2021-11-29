@@ -8,7 +8,7 @@ from pytgcalls.types.input_stream.quality import (
     LowQualityVideo,
     MediumQualityVideo,
 )
-from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
+from pytgcalls.types.stream import StreamAudioEnded
 
 from config import call_py
 from MusicAndVideo.helpers.queues import QUEUE, clear_queue, get_queue, pop_an_item
