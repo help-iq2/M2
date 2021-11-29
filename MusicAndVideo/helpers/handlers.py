@@ -66,8 +66,8 @@ async def skip_item(chat_id, h):
 
 
 @call_py.on_stream_end()
-async def on_end_handler(_, update: Update):
-    if isinstance(update, StreamAudioEnded) or isinstance(update, StreamVideoEnded):
+async def stream_end_handler(_, u: Update):
+    if isinstance(u, StreamAudioEnded):
         chat_id = update.chat_id
         print(chat_id)
         await skip_current_song(chat_id)
