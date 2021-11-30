@@ -8,7 +8,7 @@ from pytgcalls.types.input_stream.quality import (
     LowQualityVideo,
     MediumQualityVideo,
 )
-from pytgcalls.types.stream import StreamAudioEnded
+from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 
 from config import call_py
 from MusicAndVideo.helpers.queues import QUEUE, clear_queue, get_queue, pop_an_item
@@ -66,8 +66,8 @@ async def skip_item(chat_id, h):
 
 
 @call_py.on_stream_end()
-async def stream_end_handler(_, u: Update):
-    if isinstance(u, StreamAudioEnded):
+async def on_end_handler(_, update: Update):
+    if isinstance(u, StreamAudioEnded) or isinstance(u, StreamVideoEnded):
         chat_id = u.chat_id
         print(chat_id)
         await skip_current_song(chat_id)
