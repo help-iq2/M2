@@ -8,7 +8,6 @@ asyncio
 wget
 python-arq
 youtube-search-python==1.4.6
-youtube-search-python
 yt-dlp
 python-dotenv
 gTTS
