@@ -1,5 +1,4 @@
 from __future__ import unicode_literals
-
 import asyncio
 import math
 import os
@@ -13,10 +12,6 @@ from pyrogram.types import Message
 from youtubesearchpython import SearchVideos
 from yt_dlp import YoutubeDL
 from config import HNDLR
-
-
-
-
 @Client.on_message(filters.command(["تحميل", "تنزيل"], prefixes=f"{HNDLR}"))
 async def song(client, message: Message):
     urlissed = get_text(message)
@@ -35,30 +30,12 @@ async def song(client, message: Message):
     kekme = f"https://img.youtube.com/vi/{fridayz}/hqdefault.jpg"
     await asyncio.sleep(0.6)
     sedlyf = wget.download(kekme)
-    opts = {
-        "format": "bestaudio",
-        "addmetadata": True,
-        "key": "FFmpegMetadata",
-        "writethumbnail": True,
-        "prefer_ffmpeg": True,
-        "geo_bypass": True,
-        "nocheckcertificate": True,
-        "postprocessors": [
-            {
-                "key": "FFmpegExtractAudio",
-                "preferredcodec": "mp3",
-                "preferredquality": "720",
-            }
-        ],
-        "outtmpl": "%(id)s.mp3",
-        "quiet": True,
-        "logtostderr": False,
-    }
+    opts = {        "format": "bestaudio",        "addmetadata": True,        "key": "FFmpegMetadata",        "writethumbnail": True,        "prefer_ffmpeg": True,        "geo_bypass": True,        "nocheckcertificate": True,        "postprocessors": [            {                "key": "FFmpegExtractAudio",                "preferredcodec": "mp3",                "preferredquality": "720",            }        ],        "outtmpl": "%(id)s.mp3",        "quiet": True,        "logtostderr": False,    }
     try:
         with YoutubeDL(opts) as ytdl:
             ytdl_data = ytdl.extract_info(mo, download=True)
     except Exception as e:
-        await pablo.edit(f"**Failed To Download** \n**Error :** `{str(e)}`")
+        await pablo.edit(f"**هناك خطأ ** \n**الخطأ هو  :** `{str(e)}`")
         return
     c_time = time.time()
     capy = f"""
@@ -71,8 +48,6 @@ async def song(client, message: Message):
     for files in (sedlyf, file_stark):
         if files and os.path.exists(files):
             os.remove(files)
-
-
 def get_text(message: Message) -> [None, str]:
     text_to_return = message.text
     if message.text is None:
@@ -83,8 +58,6 @@ def get_text(message: Message) -> [None, str]:
         return message.text.split(None, 1)[1]
     except IndexError:
         return None
-
-
 def humanbytes(size):
     if not size:
         return ""
@@ -95,7 +68,6 @@ def humanbytes(size):
         size /= power
         raised_to_pow += 1
     return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "B"
-
 
 async def progress(current, total, message, start, type_of_ps, file_name=None):
     now = time.time()
@@ -125,8 +97,6 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
                 await asyncio.sleep(e.x)
             except MessageNotModified:
                 pass
-
-
 def get_user(message: Message, text: str) -> [int, str, None]:
     asplit = None if text is None else text.split(" ", 1)
     user_s = None
@@ -141,8 +111,6 @@ def get_user(message: Message, text: str) -> [int, str, None]:
         if len(asplit) == 2:
             reason_ = asplit[1]
     return user_s, reason_
-
-
 def get_readable_time(seconds: int) -> int:
     count = 0
     ping_time = ""
@@ -162,30 +130,17 @@ def get_readable_time(seconds: int) -> int:
     time_list.reverse()
     ping_time += ":".join(time_list)
     return ping_time
-
-
 def time_formatter(milliseconds: int) -> str:
     seconds, milliseconds = divmod(int(milliseconds), 1000)
     minutes, seconds = divmod(seconds, 60)
     hours, minutes = divmod(minutes, 60)
     days, hours = divmod(hours, 24)
-    tmp = (
-        ((str(days) + " يوم(s), ") if days else "")
-        + ((str(hours) + " ساعه(s), ") if hours else "")
-        + ((str(minutes) + " دقائق(s), ") if minutes else "")
-        + ((str(seconds) + " ثواني(s), ") if seconds else "")
-        + ((str(milliseconds) + " ميل ثانيه(s), ") if milliseconds else "")
-    )
+    tmp = (        ((str(days) + " يوم(s), ") if days else "")        + ((str(hours) + " ساعه(s), ") if hours else "")        + ((str(minutes) + " دقائق(s), ") if minutes else "")        + ((str(seconds) + " ثواني(s), ") if seconds else "")        + ((str(milliseconds) + " ميل ثانيه(s), ") if milliseconds else "")    )
     return tmp[:-2]
-
-
 def get_file_extension_from_url(url):
     url_path = urlparse(url).path
     basename = os.path.basename(url_path)
     return basename.split(".")[-1]
-
-
-# Funtion To Download Song
 async def download_song(url):
     song_name = f"{randint(6969, 6999)}.mp3"
     async with aiohttp.ClientSession() as session:
@@ -196,15 +151,10 @@ async def download_song(url):
                 await f.close()
     return song_name
 
-
 is_downloading = False
-
-
 def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":"))))
-
-
 @Client.on_message(filters.command(["تنزيل_فيديو", "تحميل_فيديو"], prefixes=f"{HNDLR}"))
 async def vsong(client, message: Message):
     urlissed = get_text(message)
@@ -225,18 +175,7 @@ async def vsong(client, message: Message):
     await asyncio.sleep(0.6)
     url = mo
     sedlyf = wget.download(kekme)
-    opts = {
-        "format": "best",
-        "addmetadata": True,
-        "key": "FFmpegMetadata",
-        "prefer_ffmpeg": True,
-        "geo_bypass": True,
-        "nocheckcertificate": True,
-        "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
-        "outtmpl": "%(id)s.mp4",
-        "logtostderr": False,
-        "quiet": True,
-    }
+    opts = {        "format": "best",        "addmetadata": True,        "key": "FFmpegMetadata",        "prefer_ffmpeg": True,        "geo_bypass": True,        "nocheckcertificate": True,        "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],        "outtmpl": "%(id)s.mp4",        "logtostderr": False,        "quiet": True,    }
     try:
         with YoutubeDL(opts) as ytdl:
             ytdl_data = ytdl.extract_info(url, download=True)
@@ -249,22 +188,7 @@ async def vsong(client, message: Message):
 **🏷️ اسم الفيديو :** [{thum}]({mo})
 **🎧 طلب من :** {message.from_user.mention}
 """
-    await client.send_video(
-        message.chat.id,
-        video=open(file_stark, "rb"),
-        duration=int(ytdl_data["duration"]),
-        file_name=str(ytdl_data["title"]),
-        thumb=sedlyf,
-        caption=capy,
-        supports_streaming=True,
-        progress=progress,
-        progress_args=(
-            pablo,
-            c_time,
-            f"**📥 تحميل** `{urlissed}`",
-            file_stark,
-        ),
-    )
+    await client.send_video(        message.chat.id,        video=open(file_stark, "rb"),        duration=int(ytdl_data["duration"]),        file_name=str(ytdl_data["title"]),        thumb=sedlyf,        caption=capy,        supports_streaming=True,        progress=progress,        progress_args=(            pablo,            c_time,            f"**📥 تحميل** `{urlissed}`",            file_stark,        ),    )
     await pablo.delete()
     for files in (sedlyf, file_stark):
         if files and os.path.exists(files):
