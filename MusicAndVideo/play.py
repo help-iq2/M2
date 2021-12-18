@@ -5,6 +5,12 @@ import time
 import aiofiles
 import aiohttp
 import wget
+import aiohttp
+from io import BytesIO
+from traceback import format_exc
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from Python_ARQ import ARQ
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pytgcalls import StreamType
@@ -19,6 +25,33 @@ from __future__ import unicode_literals
 from pyrogram.errors import FloodWait, MessageNotModified
 from youtubesearchpython import SearchVideos
 from yt_dlp import YoutubeDL
+from MusicAndVideo.helpers.merrors import capture_err
+
+ARQ_API_KEY = "QFOTZM-GSZUFY-CHGHRX-TDEHOZ-ARQ"
+aiohttpsession = aiohttp.ClientSession()
+arq = ARQ("https://thearq.tech", ARQ_API_KEY, aiohttpsession)
+
+async def quotify(messages: list):
+    response = await arq.quotly(messages)
+    if not response.ok:
+        return [False, response.result]
+    sticker = response.result
+    sticker = BytesIO(sticker)
+    sticker.name = "sticker.webp"
+    return [True, sticker]
+
+def getArg(message: Message) -> str:
+    arg = message.text.strip().split(None, 1)[1].strip()
+    return arg
+
+def isArgInt(message: Message) -> bool:
+    count = getArg(message)
+    try:
+        count = int(count)
+        return [True, count]
+    except ValueError:
+        return [False, 0]
+
 
 def ytsearch(query):
     try:
