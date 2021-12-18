@@ -2,23 +2,11 @@ import os
 import sys
 from datetime import datetime
 from time import time
-
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
 from config import HNDLR, SUDO_USERS
-
-# System Uptime
 START_TIME = datetime.utcnow()
-TIME_DURATION_UNITS = (
-    ("Minggu", 60 * 60 * 24 * 7),
-    ("Hari", 60 * 60 * 24),
-    ("Jam", 60 * 60),
-    ("Menit", 60),
-    ("Detik", 1),
-)
-
-
+TIME_DURATION_UNITS = (    ("Minggu", 60 * 60 * 24 * 7),    ("Hari", 60 * 60 * 24),    ("Jam", 60 * 60),    ("Menit", 60),    ("Detik", 1),)
 async def _human_time_duration(seconds):
     if seconds == 0:
         return "inf"
@@ -30,11 +18,7 @@ async def _human_time_duration(seconds):
     return ", ".join(parts)
 
 
-
-
-@Client.on_message(
-    filters.user(SUDO_USERS) & filters.command(["اعاده تشغيل"], prefixes=f"{HNDLR}")
-)
+@Client.on_message(    filters.user(SUDO_USERS) & filters.command(["اعاده تشغيل"], prefixes=f"{HNDLR}"))
 async def restart(client, m: Message):
     await m.delete()
     loli = await m.reply("1")
@@ -49,32 +33,14 @@ async def restart(client, m: Message):
     await loli.edit("**✅ تم اعاده تشغيل موسيقى تليثون**")
     os.execl(sys.executable, sys.executable, *sys.argv)
     quit()
-
-
-@Client.on_message(filters.command(["اوامر_الاغاني"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["اوامر الاغاني"], prefixes=f"{HNDLR}"))
 async def help(client, m: Message):
     await m.delete()
     HELP = f"""
-<b>👋 Hallo {m.from_user.mention}!
+<b>👋 اهلا {m.from_user.mention}!
 
-🛠 MENU BANTUAN
-
-⚡ PERINTAH UNTUK SEMUA ORANG
-• {HNDLR}play [judul lagu | link youtube | balas file audio] - untuk memutar lagu
-• {HNDLR}vplay [judul video | link youtube | balas file video] - untuk memutar video
-• {HNDLR}playlist untuk melihat daftar putar
-• {HNDLR}ping - untuk cek status
-• {HNDLR}help - untuk melihat daftar perintah
-
-⚡ PERINTAH UNTUK SEMUA ADMIN
-• {HNDLR}resume - untuk melanjutkan pemutaran lagu atau video
-• {HNDLR}pause - untuk untuk menjeda pemutaran lagu atau video
-• {HNDLR}skip - untuk melewati lagu atau video
-• {HNDLR}end - untuk mengakhiri pemutaran</b>
-"""
+🛠 """
     await m.reply(HELP)
-
-
 @Client.on_message(filters.command(["الريبو"], prefixes=f"{HNDLR}"))
 async def repo(client, m: Message):
     await m.delete()
