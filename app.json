@@ -1,33 +1,33 @@
 {
-    "name": "Music Dan Video Player UserBot",
-    "description": "Telegram UserBot Untuk Memutar Lagu Dan Video Di Obrolan Suara Telegram.",
+    "name": "ميـوزك تلـيثون",
+    "description": "اهلا بك في تنصيب ميوزك تليثون مجانا @iqthon.",
     "logo": "https://telegra.ph/file/e99fd5f4e72127ed67c65.jpg",
     "keywords": [
         "Telegram",
         "MusicPlayer",
         "VideoPlayer"
     ],
-    "repository": "https://github.com/XtomiSN/MusicAndVideoPlayer",
+    "repository": "https://github.com/telenothelp/MusicTelethon",
     "env": {
         "SESSION": {
-            "description": "Pyrogram String Session",
+            "description": "ضع هنا كود السيشن بايرو",
             "required": true
         },
         "API_ID": {
-            "description": "Masukan APP ID Silahkan Ambil dari my.telegram.org/apps",
+            "description": "ضع هنا كود الايبي ايدي",
             "required": true
         },
         "HNDLR": {
-            "description": "ini akan digunakan sebagai prefix di semua perintah",
+            "description": "ضع هنا رمز الامر الذي تريده كمثال ( . - ! - / - $ ) ",
             "required": false,
-            "value": "/"
+            "value": "$"
         },
         "API_HASH": {
-            "description": "Masukan API HASH Silahkan Ambil dari my.telegram.org/apps",
+            "description": "ضع هنا كود الايبي هاش",
             "required": true
         },
         "SUDO_USERS": {
-            "description": "Daftar User ID pengguna dihitung sebagai admin di semua tempat (pemisah menggunakan space)",
+            "description": "ضع هنا ايدي حسابك",
             "required": true
         }
     },
