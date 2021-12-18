@@ -5,7 +5,7 @@ from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio,    HighQualityVideo,    LowQualityVideo,    MediumQualityVideo
 from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 from config import call_py
-from MusicAndVideo.helpers.queues import QUEUE, clear_queue, get_queue, pop_an_item
+from MusicTelethon.helpers.queues import QUEUE, clear_queue, get_queue, pop_an_item
 
 async def skip_current_song(chat_id):
     if chat_id in QUEUE:
