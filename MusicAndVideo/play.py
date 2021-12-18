@@ -21,7 +21,6 @@ from config import HNDLR, bot, call_py
 from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue, clear_queue
 from MusicAndVideo.helpers.decorators import authorized_users_only
 from MusicAndVideo.helpers.handlers import skip_current_song, skip_item
-from __future__ import unicode_literals
 from pyrogram.errors import FloodWait, MessageNotModified
 from youtubesearchpython import SearchVideos
 from yt_dlp import YoutubeDL
