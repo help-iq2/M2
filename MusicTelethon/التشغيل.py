@@ -164,7 +164,7 @@ async def play(client, m: Message):
                             await huehue.edit(f"`{ep}`")
 
 
-@Client.on_message(filters.command(["تنزيل فيديو"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["تشغيل فيديو"], prefixes=f"{HNDLR}"))
 async def vplay(client, m: Message):
     replied = m.reply_to_message
     chat_id = m.chat.id
@@ -394,7 +394,7 @@ async def pause(client, m: Message):
             await m.reply(f"**هناك خطأ ** \n`{e}`")
     else:
         await m.reply("** ❌ لايوجد اغنيه مشتغله !**") 
-@Client.on_message(filters.command(["ايقاف_الاستئناف"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["ايقاف الاستئناف"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def resume(client, m: Message):
     await m.delete()
