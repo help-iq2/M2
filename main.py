@@ -1,7 +1,7 @@
 import asyncio
 from pytgcalls import idle
 from config import call_py
-from MusicAndVideo.quote import arq
+from MusicAndVideo.play import arq
 async def main():
     await call_py.start()
     print(
