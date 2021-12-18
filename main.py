@@ -1,16 +1,12 @@
 import asyncio
 from pytgcalls import idle
 from config import call_py
-from MusicAndVideo.التشغيل import arq
+from MusicTelethon.التشغيل import arq
 async def main():
     await call_py.start()
-    print(
-        """
-    ------------------
+    print("""    ------------------
    | ميوزك تليثون الان شغال ! |
-    ------------------
-"""
-    )
+    ------------------"""    )
     await idle()
     await arq.close()
 loop = asyncio.get_event_loop()
