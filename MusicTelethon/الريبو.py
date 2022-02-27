@@ -57,7 +57,8 @@ async def help(client, m: Message):
 
 ⧉ | لأعاده تشغيل التنصيب أرسل ⇦  [ `{HNDLR}ريستارت` ]
 ———————×———————
-🛠 """
+🛠 | @TelethonMusic
+⭐ | @LLL5L"""
     await m.reply(HELP)
 @Client.on_message(filters.command(["الريبو"], prefixes=f"{HNDLR}"))
 async def repo(client, m: Message):
@@ -65,7 +66,7 @@ async def repo(client, m: Message):
     REPO = f"""
 <b>👋  اهلا {m.from_user.mention}!
 
-🎶 هذا ميوزك العرب @TelethonMusic
-
+🎶 هذا ميوزك العرب | @TelethonMusic
+⭐ المطور | @LLL5L
 """
     await m.reply(REPO, disable_web_page_preview=True)
