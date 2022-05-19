@@ -113,11 +113,11 @@ async def play(client, m: Message):
             await m.reply("الرد على ملف صوتي أو إعطاء شيء للبحث")
         else:
             await m.delete()
-            huehue = await m.reply("🔎 جاري البحث عزيزي ")
+            huehue = await m.reply("جاري العثور على الاغنية")
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             if search == 0:
-                await huehue.edit("لم يتم العثور على شيء ")
+                await huehue.edit("لم يتم العثور على الاغنية ")
             else:
                 songname = search[0]
                 url = search[1]
