@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.10.6
 
 RUN apt update && apt upgrade -y
 RUN apt install python3-pip -y
